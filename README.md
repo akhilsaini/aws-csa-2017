@@ -441,19 +441,19 @@ IAM consists of the following
 
   - New users have no permissions when first created. Everything has to be explicitly added.
 
-  - *Power User Access allows Access to all AWS services except the management of groups and users within IAM.
+  - *Power User Access allows Access to all AWS services except the management of groups and users within   IAM.
 
   - Group ARN ->  arn:aws:iam::47629277****:group/Administrators
-    pattern ->    arn:aws:?service-name?::?12-digit-num?:group/?group-name?
+  - pattern ->    arn:aws:?service-name?::?12-digit-num?:group/?group-name?
 
   - Users ARN ->  arn:aws:iam::476292779418:user/Administrator
-    pattern ->    arn:aws:?service-name?::?12-digit-num?:user/?user-name?
+  - pattern ->    arn:aws:?service-name?::?12-digit-num?:user/?user-name?
 
   - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role
-    pattern ->    arn:aws:?service-name?::?12-digit-num?:role/service-role/?role-name?
+  - pattern ->    arn:aws:?service-name?::?12-digit-num?:role/service-role/?role-name?
 
   - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
-    pattern ->    arn:aws:?service-name?::aws:policy/?policy-name?
+  - pattern ->    arn:aws:?service-name?::aws:policy/?policy-name?
 
 Manage AWS resources via
 
