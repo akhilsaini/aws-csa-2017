@@ -244,7 +244,7 @@ The exam is approximately 60 questions in 80 minutes. Pass marks not advertised 
 
   - Storage
 
-      - S3 - Object Store
+      - S3 - Object Store, frequent access
 
       - Glacier – Archive files from S3 into Glacier – use when you don’t need immediate access to files
 
