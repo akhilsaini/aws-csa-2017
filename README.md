@@ -449,7 +449,7 @@ IAM consists of the following
   - Users ARN ->  arn:aws:iam::476292779418:user/Administrator
     pattern ->    arn:aws:?service-name?::?12-digit-num?:user/?user-name?
 
-  - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role  
+  - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role
     pattern ->    arn:aws:?service-name?::?12-digit-num?:role/service-role/?role-name?
 
   - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
