@@ -10,6 +10,9 @@
 ### I prepared these notes while studying for my re-certification exam in May 2017. I haven’t kept this updated as much as I would have liked to. If you notice any changes in the AWS policies / services, please add a comment below and I’ll update this. Also, for any omissions and corrections feel free to kindly open a PR on this [Github Repo](https://github.com/agasthik/aws-csa-2017/)
 
 
+Bulletted points with * prepended are bit trickier to understand.
+
+
 Table of Contents                                                                                                                       
 =================                                                           
    * [Exam Blueprint](#exam-blueprint)                                                                                               
@@ -386,6 +389,8 @@ The exam is approximately 60 questions in 80 minutes. Pass marks not advertised 
 
 ## IAM 101
 
+  - IAM user sigin link : https://akhileshdumca.signin.aws.amazon.com/console, akhileshdumca is replaced    with 12-digit account id number.
+
   - Configure who uses AWS and their level of access to the AWS Console.
 
   - Centralized control over AWS Account
@@ -432,11 +437,23 @@ IAM consists of the following
 
   - Secret access key can be retrieved only once during user creation. In case you lose it then you can re-generate it.
 
-  - IAM Password policy can be set to access the admin console.
+  - *IAM Password policy can be set to access the admin console.
 
   - New users have no permissions when first created. Everything has to be explicitly added.
 
-  - Power User Access allows Access to all AWS services except the management of groups and users within IAM.
+  - *Power User Access allows Access to all AWS services except the management of groups and users within IAM.
+
+  - Group ARN ->  arn:aws:iam::47629277****:group/Administrators
+    pattern ->    arn:aws:<service-name>::<12-digit-num>:group/<group-name>
+
+  - Users ARN ->  arn:aws:iam::476292779418:user/Administrator
+    pattern ->    arn:aws:<service-name>::<12-digit-num>:user/<user-name>
+
+  - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role  
+    pattern ->    arn:aws:<service-name>::<12-digit-num>:role/service-role/<role-name>
+
+  - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
+    pattern ->    arn:aws:<service-name>::aws:policy/<policy-name>  
 
 Manage AWS resources via
 
