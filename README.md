@@ -172,10 +172,11 @@ The table below lists the domains measured by this examination and the extent to
 
 |Domain | % of Examination|
 |------------- |:-------------:|
-|1.0 Designing highly available, cost efficient, fault tolerant, scalable systems |60% |
-|2.0 Implementation/Deployment |10% |
-|3.0 Data Security| 20% |
-|4.0 Troubleshooting |10% |
+|1.0 Designing resilient architecture |34% |
+|2.0 Define performant architecture |24%|
+|3.0 Specify secure application and architecture |26%|
+|4.0 Design cost optimized architecture |10% |
+|5.0 Define operationaly excellent architecture | 06% |
 |**Total**|100%|
 
 The exam is approximately 60 questions in 80 minutes. Pass marks not advertised but generally > 70%
