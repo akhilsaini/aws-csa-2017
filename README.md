@@ -466,6 +466,8 @@ IAM consists of the following
 
   - Secret access key can be retrieved only once during user creation. In case you lose it then you can re-generate it.
 
+  - You can inactive the Access Key Id by clicking users -> security credentials -> Access Keys and then click the **Make inactive** button.
+
   - IAM Password policy can be set to access the admin console.
 
   - New users have no permissions when first created. Everything has to be explicitly added.
