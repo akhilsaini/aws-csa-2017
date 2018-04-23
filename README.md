@@ -172,6 +172,8 @@ Choose certification [type] (https://aws.amazon.com/certification/certified-solu
 
 Scheduling the [exam] (https://www.certmetrics.com/amazon/) using amazon's credentials.
 
+Two levels of the exam for the solution architect one is Certified Soulution Architect-Professional and other is Certified Soulution Architect-Associate. To sit for the professional one you need to have the associate as a prerequisite.
+
 The table below lists the domains measured by this examination and the extent to which they are represented
 
 |Domain | % of Examination|
