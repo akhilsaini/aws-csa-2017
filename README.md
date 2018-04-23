@@ -449,7 +449,7 @@ IAM consists of the following
 
   - Secret access key can be retrieved only once during user creation. In case you lose it then you can re-generate it.
 
-  - *IAM Password policy can be set to access the admin console.
+  - IAM Password policy can be set to access the admin console.
 
   - New users have no permissions when first created. Everything has to be explicitly added.
 
@@ -462,7 +462,7 @@ IAM consists of the following
   - Pattern ->    arn:aws:[service-name]::[12-digit-num]:user/[user-name]
 
   - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role
-  - Pattern ->    arn:aws:[service-name]::[12-digit-nu]:role/service-role/[role-name]
+  - Pattern ->    arn:aws:[service-name]::[12-digit-num]:role/service-role/[role-name]
 
   - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
   - Pattern ->    arn:aws:[service-name]::aws:policy/[policy-name]
