@@ -181,7 +181,7 @@ The table below lists the domains measured by this examination and the extent to
 |5.0 Define operationaly excellent architecture | 06% |
 |**Total**|100%|
 
-The exam is approximately 60 questions in 80 minutes. Pass marks not advertised but generally > 70%
+The exam is approximately 65 questions in 130 minutes. Pass marks not advertised but generally > 70%
 
 ## Course Video Durations
 
