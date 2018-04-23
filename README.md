@@ -472,7 +472,7 @@ IAM consists of the following
 
   - New users have no permissions when first created. Everything has to be explicitly added.
 
-  - New users are assigned Access Key Id and Secret Access Key when first created. Though these things can't be used to login to console as a alternative to username/password.
+  - New users are assigned Access Key Id and Secret Access Key when first created. You can use these keys either with AWS API or command line or SDK. Though these things can't be used to login to console as a alternative to username/password.
 
   - *Power User Access allows Access to all AWS services except the management of groups and users within   IAM.
 
