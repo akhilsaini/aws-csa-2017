@@ -205,6 +205,18 @@ The exam is approximately 60 questions in 80 minutes. Pass marks not advertised 
 
 # AWS 10000 Feet Overview
 
+## Amazon History
+
+  - 2003 - Chris Pinkman and Benjamin Black presented a paper on what Amazon's internal infrastructure      should look like and suggested sellingit as a service
+  - 2004 - SQS the first AWS service launched
+  - 2006 - Official AWS Launch
+  - 2007 - 180K devs on platform
+  - 2010 - Amazon.com moved to AWS PlatformRegion is geographical area which consists of at least 2 AZ's
+  - 2012 - First Re-Invent conference in Las Vegas
+  - 2013 - Certifications Launched
+  - 2014 - AWS commited to achieve 100% renewable energy usage for its global footprint
+  - 2015 - AWS broke out it's revenue, 6 Billion USD per annum and growing close to 90% year after year
+
 ## Global Infrastructure
 
   - A Region is geographical area consisting of 2 or more availability zones.
