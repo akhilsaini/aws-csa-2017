@@ -450,7 +450,7 @@ IAM consists of the following
 
   - Roles – Create roles and assign them to AWS resources.
 
-  - Policies – Document (JSON format) that defines one or more permissions – assign to user or groups
+  - Policies – Document (JSON format) that defines one or more permissions – assign to user or groups or roles
 
 ### IAM Features
 
