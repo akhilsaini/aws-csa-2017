@@ -220,17 +220,11 @@ The exam is approximately 60 questions in 80 minutes. Pass marks not advertised 
 ## Global Infrastructure
 
   - A Region is geographical area consisting of 2 or more availability zones.
-
-  - Availability zone is logical data center
-
+  - Availability zone is logical data center.
   - Edge Locations are CDN End Points for CloudFront. Many more edge locations exist than regions.
-
-  - 18 Geographical regions and 54 availability zones
-
-  - 1 Local region
-
-  - Anounced plan for 4 Geographical regions and 12 availability zones
-
+  - 18 Geographical regions and 54 availability zones.
+  - 1 Local region.
+  - Anounced plan for 4 Geographical regions and 12 availability zones.
   - An AWS local region is a single datacenter designed to complement an existing AWS region.
 
 ## Tags
