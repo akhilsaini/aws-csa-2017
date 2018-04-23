@@ -233,6 +233,16 @@ The exam is approximately 60 questions in 80 minutes. Pass marks not advertised 
 
   - An AWS local region is a single datacenter designed to complement an existing AWS region.
 
+## Tags
+
+  - Key/Value pairs attached to AWS resources
+  - Metadata (data about data)
+  - Sometimes can be inherited (Auto-scaling, CloudFormation, Elastic Beanstalk can create other resources)
+  - Resource Groups make it easy to group your resources using the tags that are assigned to them
+  - You can group resources that share one or more tags
+  - Resource groups contain info such as region, name, health checks
+  - Contains specific info such as pub/private IP's in EC2 instances, Port configs for ELB, Database engine in RDS
+
 ## The AWS Platform
 
   - Networking & Content Delivery
