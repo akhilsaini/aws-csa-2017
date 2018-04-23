@@ -422,7 +422,7 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 
   - Centralized control over AWS Account
 
-  - Share access for AWS Account
+  - Shared access to your AWS Account
 
   - Granular permissions for users / services
 
@@ -430,9 +430,9 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 
   - Multi-factor authentication – helps secure the account. Especially for root account
 
-  - Temporary access to users and services
+  - Provide temporary access to users/devices and services
 
-  - Setup password rotation policy
+  - Allows you to setup your own password rotation policy
 
   - Integration with other AWS services.
 
