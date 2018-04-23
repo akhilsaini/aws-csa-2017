@@ -170,6 +170,8 @@ Review Exam [Blueprint](https://d1.awsstatic.com/training-and-certification/docs
 
 Choose certification [type] (https://aws.amazon.com/certification/certified-solutions-architect-associate/) -
 
+Scheduling the [exam] (https://www.certmetrics.com/amazon/) using amazon's credentials.
+
 The table below lists the domains measured by this examination and the extent to which they are represented
 
 |Domain | % of Examination|
