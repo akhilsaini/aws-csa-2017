@@ -166,7 +166,9 @@ Table of Contents
 
 ## Exam Blueprint
 
-Review Exam [Blueprint](http://awstrainingandcertification.s3.amazonaws.com/production/AWS_certified_solutions_architect_associate_blueprint.pdf) –
+Review Exam [Blueprint](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS_Certified_Solutions_Architect_Associate_Feb_2018_%20Exam_Guide_v1.5.2.pdf) –
+
+Choose certification [type] (https://aws.amazon.com/certification/certified-solutions-architect-associate/) -
 
 The table below lists the domains measured by this examination and the extent to which they are represented
 
