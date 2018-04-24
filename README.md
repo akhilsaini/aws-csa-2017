@@ -516,7 +516,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### S3 Data Consistency Model
 
   - Read after write consistency for PUTS of new Objects
-  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propogate)
+  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propogate). Though the retrieval is atomic i.e. no corrupted data, either the old one or the new one.
 
 ### S3 is a simple key value store
 
@@ -550,6 +550,15 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
 ![S3 Storage Tier Classes](s3-storage-tier-classes.jpg)
 ![S3 Storage Vs Glacier](s3-storage-tier-classes-glacier.jpg)
+
+
+### S3 Charges
+  - Charged for : 
+    - Storage
+    - No. of Requests
+    - Storage management pricing : Charged for per tag basis, developer intervention.
+    - Data transfer pricing.(Incoming data is free but retrieving and tranferring is chargable)
+    - Transfer Acceleration : It enables fast,easy and secure transfer using AWS cloudfront and it's global distributted edge locations.
 
 ### S3 Buckets
 
