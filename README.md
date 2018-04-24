@@ -522,19 +522,33 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
   - S3 is object based and consists of the following
     - Key(This is simply the name of the object).
+      - S3 is designed to store the data lexographically(alphabatically) and same named files will be stored at the almost same location. So if your files are too heavy and are of the almost same name then you can have performance bottlenecks. To remedy this situtation you can add some randomness to the beginning of the file names. i.e. instead of test.log,test2.log,test3.log have 123test1.log,432test2.log.
     - Value(This is simply the data and made up of sequence of bytes).
     - Version ID(Important for versioning).
     - Metadata(Data about the data you are storing).
+    - Subresources
+      - Access Control List(fine grained permission setting)
+      - Torrent(supports bittorrent protocol)
 
-### S3 Object Storage Classes
+### S3 Basics
 
-  - S3-Standard - Durability of 99.999999999% and availability of 99.99%.
+  - Tiered Storage Available
+  - Lifecycle Management : Different type of storage options
+  - Versioning
+  - Encryption
+  - Secure your data using ACL and Bucket Policies
 
-  - S3-IA (Infrequently Accessed) - Durability of 99.999999999% and availability of 99.9%.
+### S3 Object Tier Storage Classes(SLA- Service Level Agreements regarding the durability and availability)
+
+  - S3-Standard - Durability(Not loosing the file) of 99.999999999% and availability of 99.99%. Stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently. i.e. very very highly available.
+
+  - S3-IA (Infrequently Accessed) - Durability of 99.999999999% and availability of 99.9%. For data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are charged for retrieval.
 
   - S3-RRS (Reduced Redundancy Storage) - Durability and availability of 99.99%. Use when you don’t care if data is occasionally lost and can easily be re-created.
   
-  - Glacier - For archival only. Takes 3 - 5 hours to restore files. Durability of 99.999999999%.
+  - Glacier - For archival only. Takes 3 - 5 hours to restore files. Durability of 99.99%.
+
+![S3 Storage Tier Classes](s3-storage-tier-classes.jpg)  
 
 ### S3 Buckets
 
