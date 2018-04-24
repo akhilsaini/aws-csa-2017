@@ -7,7 +7,9 @@
 #### You can also read this on [Gitbooks](https://agasthik.gitbooks.io/aws-csa/content/) or [Medium](https://medium.com/@agasthi.kothurkar/aws-csa-2017-study-guide-90fa9ee7c9d0) and download the guide in PDF format [here](https://www.gitbook.com/download/pdf/book/agasthik/aws-csa)
 
 ################# IMPORTANT NOTE #################
-### I prepared these notes while studying for my re-certification exam in May 2017. I haven’t kept this updated as much as I would have liked to. If you notice any changes in the AWS policies / services, please add a comment below and I’ll update this. Also, for any omissions and corrections feel free to kindly open a PR on this [Github Repo](https://github.com/agasthik/aws-csa-2017/)
+### I(Akhilesh Saini) prepared these notes while studying for my certification exam in Apr 2018.
+
+### This is the original work of mentioned repo. [Github Repo](https://github.com/agasthik/aws-csa-2017/)
 
 
 There is few modification in the notes which are related to 2018 exam as the notes are old and as per the 2017 exam pattern.
