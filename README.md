@@ -549,7 +549,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - Glacier - For archival only. Takes 3 - 5 hours to restore files. Durability of 99.999999999%.
 
 ![S3 Storage Tier Classes](s3-storage-tier-classes.jpg)
-![S3 Storage Tier Classes with Glacier](s3-storage-tier-classes.jpg)
+![S3 Storage Vs Glacier](s3-storage-tier-classes-glacier.jpg)
 
 ### S3 Buckets
 
