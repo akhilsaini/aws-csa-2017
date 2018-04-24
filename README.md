@@ -12,9 +12,7 @@
 ### This is the original work of mentioned repo. [Github Repo](https://github.com/agasthik/aws-csa-2017/)
 
 
-There is few modification in the notes which are related to 2018 exam as the notes are old and as per the 2017 exam pattern.
-
-Bulletted points with * prepended are bit trickier to understand.
+#### Bulletted points with * prepended are bit trickier to understand.
 
 
 Table of Contents                                                                                                                       
