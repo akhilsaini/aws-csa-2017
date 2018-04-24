@@ -502,7 +502,29 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
 # AWS Object Storage & CDN – S3, Glacier and CloudFront
 
-## S3 101
+## S3 101 (Simple Storage Service)
+
+  - S3 is object based storage i.e. it allows you to only save/store/upload files. You Can't run applications db,os and other s/w applications on this.
+  - Files can be 0 to 5TB in size.
+  - There is unlimited storage.
+  - Files are stored in Buckets.
+  - S3 is universal namespace, that is, names must be unique globally.
+  - S3 Bucket URL :-> https://s3-us-east-1.amazonaws.com/mylifecyclebucketak
+  - Pattern :-> https://s3-[region-name].amazonaws.com/[bucketname]
+  - On successful completion of upload you'll get 200 status code.
+
+### S3 Data Consistency Model
+
+  - Read after write consistency for PUTS of new Objects
+  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propogate)
+
+### S3 is a simple key value store
+
+  - S3 is object based and consists of the following
+    - Key(This is simply the name of the object).
+    - Value(This is simply the data and made up of sequence of bytes).
+    - Version ID(Important for versioning).
+    - Metadata(Data about the data you are storing).
 
 ### S3 Object Storage Classes
 
