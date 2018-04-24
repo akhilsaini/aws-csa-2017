@@ -12,7 +12,7 @@
 ### This is the original work of mentioned repo. [Github Repo](https://github.com/agasthik/aws-csa-2017/)
 
 
-#### Bulletted points with * prepended are bit trickier to understand.
+#### Note : Bulletted points with * prepended are bit trickier to understand. So pay special attention to those.
 
 
 Table of Contents                                                                                                                       
