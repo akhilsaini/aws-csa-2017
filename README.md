@@ -562,7 +562,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
 ### S3 Buckets
 
-  - S3 Namespace is global. Region independent.
+  - S3 Namespace is global also shows the same in AWS console. Buckets created in regions but Region independent.
 
   - A bucket name in any region should only contain lower case characters. It has to be DNS Compliant
 
