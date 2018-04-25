@@ -1470,10 +1470,12 @@ Important section for all exams☺. You should be able to build out own VPCs fro
 ## Introduction
 
   - VPC is a logical data center within an AWS Region.
-
+  - Every region in the world has default VPC. It's get setup automatically when you setup your account.
   - Control over network environment, select IP address range, subnets and configure route tables and gateways.
-
+  -  You can have as many VPCs as you want but there is a soft limit of 5.
   - Do not span regions, but can span AZs.
+  - Only one Internet Gateway per VPC.
+  - Availability zone is physical data center while VPC is logical data center.
 
   - Can create public facing subnet (Web) having internet access and private facing subnet (DB) with no internet access
 
