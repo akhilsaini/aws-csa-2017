@@ -510,8 +510,10 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - There is unlimited storage.
   - Files are stored in Buckets.
   - S3 is universal namespace, that is, names must be unique globally.
-  - S3 Bucket URL :-> https://s3-us-east-1.amazonaws.com/mylifecyclebucketak
-  - Pattern :-> https://s3-[region-name].amazonaws.com/[bucketname]
+  - *S3 Bucket URL :-> https://s3-us-east-1.amazonaws.com/mylifecyclebucketak
+  - *Pattern :-> https://s3-[region-name].amazonaws.com/[bucketname]
+  - S3 File URL :-> https://s3.amazonaws.com/acloudguruwebsiteakhilesh/image1.PNG
+  - Pattern :-> https://s3.amazonaws.com/[bucketname]/filename/[filename]
   - On successful completion of upload you'll get 200 status code.
 
 ### S3 Data Consistency Model
@@ -542,9 +544,8 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### S3 Object Tier Storage Classes(SLA- Service Level Agreements regarding the durability and availability)
 
   - S3-Standard - Durability(Not loosing the file) of 99.999999999% and availability of 99.99%. Stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently. i.e. very very highly available.
-
-  - S3-IA (Infrequently Accessed) - Durability of 99.999999999% and availability of 99.9%. For data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are charged for retrieval.
-
+  - S3 Standard-IA (Infrequently Accessed) - Durability of 99.999999999% and availability of 99.9%. For data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are charged for retrieval. Minimum 30-day retention period and minimum 128 KB object size.
+  - One Zone-IA - For infrequently accessed data. Stores data only in 1 AZ at a lower price than Standard-IA. Minimum 30-day retention period and minimum 128 KB object size.
   - S3-RRS (Reduced Redundancy Storage) - Durability and availability of 99.99%. Use when you don’t care if data is occasionally lost and can easily be re-created.
   
   - Glacier - For archival only. Takes 3 - 5 hours to restore files. Durability of 99.999999999%.
@@ -554,78 +555,78 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
 
 ### S3 Charges
-  - Charged for : 
-    - Storage
-    - No. of Requests
-    - Storage management pricing : Charged for per tag basis, developer intervention.
-    - Data transfer pricing.(Incoming data is free but retrieving and tranferring is chargable)
-    - Transfer Acceleration : It enables fast,easy and secure transfer using AWS cloudfront and it's global distributted edge locations.
+
+  - Storage(How much data you put exactly)
+  - No. of Requests
+  - Storage management pricing : Charged for per tag basis, developer intervention.
+  - Data transfer pricing.(Incoming data is free but retrieving and tranferring is chargable)
+  - Transfer Acceleration : It enables fast,easy and secure transfer using AWS cloudfront and it's global distributted edge locations.
 
 ### S3 Buckets
 
-  - S3 Namespace is global also shows the same in AWS console. Buckets created in regions but Region independent.
-
+  - S3 Namespace is global also shows the same in AWS console. Buckets created in regions but Region independent i.e. buckets are managed globally.
   - A bucket name in any region should only contain lower case characters. It has to be DNS Compliant
-
+  - By default all buckets are private.
+  - Uploading multiple files at the same time will make it a single task so it'll show 1 Success/Error.
   - Object versioning - Different versions of the same object in a bucket.
-
   - Only Static website can be hosted. Auto scaling, Load Balancing etc. all managed automatically.
-
   - You can tag buckets (or any AWS resoruce) to track costs. Tags consist of keys and (optional) value pairs.
-
-  - Lifecycle management of objects can be set. e.g. move to Glacier after 30 days
-
+  - Lifecycle management of objects can be set. e.g. move to Glacier after 30 days.
   - Every bucket created, object uploaded is private by default.
-
-  - Object Permissions – Access to Object ACLs
-
+  - Object Permissions – Access to Object ACLs.
   - Prefix in bucket is a folder in the bucket.
-
   - Minimum file size that I can store on S3 bucket is 0 byte.
-
   - Max 100 S3 buckets per account by default.
-
   - Individual Amazon S3 objects can range in size from a minimum of **0 bytes** to a maximum of **5 terabytes**. The largest object that can be uploaded in a single PUT is **5 gigabytes**. For objects larger than **100 megabytes**, customers should consider using the Multipart Upload capability.
 
 ### S3 Versioning
 
-  - Once versioning is turned on it cannot be removed. It can only be suspended. To remove versioning, you have to create a new bucket and transfer all files from old to new
-
+  - Once versioning is turned on it cannot be removed. It can only be suspended. To remove versioning, you have to create a new bucket and transfer all files from old to new.
   - For newer version of an object, you still have to set permissions to allow access. It is disabled by default even if previous version is public.
-
   - All versions of the file add up to the storage. Hence for larger objects, ensure that there is some lifecycle versioning in place.
-
   - Version deleted cannot be restored.
-
   - Object deleted can be restored – Delete the Delete marker.
-
   - Versioning is a good backup tool.
-
   - For versioning. MFA can be setup for Delete capability for object / bucket – Complicated setup.
 
-## Cross Region Replication
+### S3 Security
+
+  - By default all newly created buckets are Private
+  - Control Access to buckets using
+      - Bucket Policies – bucket wide.
+      - Access Control Lists – up to individual objects.
+  - S3 buckets can log all access requests to another S3 bucket even another AWS account.
+
+### S3 Encryption
+
+  - Client Side Encryption
+    - Encrypt data at client side and then upload to S3.
+  - Server side Encryption
+    - Server side Encryption with Amazon S3 Managed Keys (SSE-S3 AES-256)
+    - Server side Encryption with KMS (SSE-KMS)
+    - Server side Encryption Customer Provided Keys (SSE-C).  Key Management is responsibility of user.
+
+### S3 Tagging
+
+  - Tagging can be done on Bucket and Object level as well.
+  - Object doesn't inherit the bucket tags.
+
+### S3 Cross Region Replication
 
   - To allow for cross region replication, the both source and target buckets must have versioning enabled.
-
   - When cross region replication is enabled, all existing objects in the bucket are not copied over to replica site. Only Updates to existing objects and newer objects are replicated over. All previous versions of the updated objects are replicated.
-
   - Permissions are also replicated from one bucket to another.
-
   - Transitive replications do not work. E.g. if you setup bucket C to replicate content from bucket B which replicates content from bucket A – Changes made to bucket A will not get propagated to C. You will need to manually upload content to bucket B to trigger replication to C.
-
   - Delete markers are replicated.
-
   - If you delete source replication bucket objects, they are deleted from replica target bucket too. When you delete a Delete marker or version from source, that action is not replicated.
 
-## Lifecycle Management
+### S3 Lifecycle Management
 
   - Objects stored in Glacier incur minimum 90 day storage cost.
-
-  - Lifecycle management can be used in conjunction with versioning
-
+  - Lifecycle management can be used in conjunction with versioning.
   - Objects can be transitioned to S3-IA after 30 days and to Glacier class storage - 30 days IA.
-
   - You can also permanently delete objects.
+
 
 ## CloudFront CDN Overview
 
@@ -681,39 +682,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
   - You can also upload content to CloudFront.
 
-## S3 Security & Encryption
 
-### Security
-
-  - By default all newly created buckets are Private
-
-  - Control Access to buckets using
-
-      - Bucket Policies – bucket wide.
-
-      - Access Control Lists – up to individual objects.
-
-  - S3 buckets can log all access requests to another S3 bucket even another AWS account.
-
-### Encryption
-
-  - In Transit
-
-Secured using SSL/TLS
-
-  - Data at rest
-
-1. Server Side
-
-    1. S3 Managed Keys – SSE – S3
-
-    2. AWS KMS Managed Keys – SSE – KMS – Envelop Key. Provides audit trail
-
-    3. SSE using customer provided keys. Key Management is responsibility of user. SSE-C
-
-2. Client Side
-
-Encrypt data at client side and then upload to S3.
 
 ## Storage Gateway
 
