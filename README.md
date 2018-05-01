@@ -579,19 +579,14 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - Max 100 S3 buckets per account by default.
   - Individual Amazon S3 objects can range in size from a minimum of **0 bytes** to a maximum of **5 terabytes**. The largest object that can be uploaded in a single PUT is **5 gigabytes**. For objects larger than **100 megabytes**, customers should consider using the Multipart Upload capability.
 
-### S3 Versioning
+### S3 Tagging
 
-  - Once versioning is turned on it cannot be removed. It can only be suspended. To remove versioning, you have to create a new bucket and transfer all files from old to new.
-  - For newer version of an object, you still have to set permissions to allow access. It is disabled by default even if previous version is public.
-  - All versions of the file add up to the storage. Hence for larger objects, ensure that there is some lifecycle versioning in place.
-  - Version deleted cannot be restored.
-  - Object deleted can be restored – Delete the Delete marker.
-  - Versioning is a good backup tool.
-  - For versioning. MFA can be setup for Delete capability for object / bucket – Complicated setup.
+  - Tagging can be done on Bucket and Object level as well.
+  - Object doesn't inherit the bucket tags.
 
 ### S3 Security
 
-  - By default all newly created buckets are Private
+  - By default all newly created buckets are Private and the objects inside them are also private.
   - Control Access to buckets using
       - Bucket Policies – bucket wide.
       - Access Control Lists – up to individual objects.
@@ -606,10 +601,15 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
     - Server side Encryption with KMS (SSE-KMS)
     - Server side Encryption Customer Provided Keys (SSE-C).  Key Management is responsibility of user.
 
-### S3 Tagging
+### S3 Versioning
 
-  - Tagging can be done on Bucket and Object level as well.
-  - Object doesn't inherit the bucket tags.
+  - Once versioning is turned on it cannot be turned off. It can only be suspended. To remove versioning, you have to create a new bucket and transfer all files from old to new.
+  - For newer version of an object, you still have to set permissions to allow access. It is disabled by default even if previous version is public.
+  - All versions of the file add up to the storage. Hence for larger objects, ensure that there is some lifecycle versioning in place.
+  - Version deleted cannot be restored.
+  - Object deleted can be restored – Delete the Delete marker.
+  - Versioning is a good backup tool.
+  - For versioning. MFA can be setup for Delete capability for object / bucket – Complicated setup.
 
 ### S3 Cross Region Replication
 
