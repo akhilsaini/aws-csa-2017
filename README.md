@@ -616,16 +616,17 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - To allow for cross region replication, the both source and target buckets must have versioning enabled.
   - Replication can be done within the same AWS account's bucket or to some other AWS account's bucket.
   - At the time of replication you can change the storage class of target bucket.
+  - At the time of replication you can change the object ownership to destination bucket owner.
   - Replication can be done on the sub-directory as well.
-  - For replication we'll be needing a IAM role. If we don't have one readily available then we can create at the time of replication as well.
-  - When cross region replication is enabled, all existing objects in the bucket are not copied over to replica site. Only Updates to existing objects and newer objects are replicated over. All previous versions of the updated objects are replicated.
-  - To replicate the already existing objects you need to explicitly copy them from source bucket to target bucket.
-  - Permissions are also replicated from one bucket to another.
+  - For replication we'll be needing a IAM role. If we don't have one readily available then we can create one at the time of replication as well.
+  - When cross region replication is enabled, all existing objects in the bucket are not copied over to replica site. Only subsequent Updates to existing objects and newer objects are replicated over. *All previous versions of the updated objects are replicated.*
+  - To replicate the already existing objects you need to explicitly copy them from source bucket to target bucket using AWS-CLI or some other tool.
+  - *Permissions are also replicated from one bucket to another.
   - Transitive replications do not work. E.g. if you setup bucket C to replicate content from bucket B which replicates content from bucket A – Changes made to bucket A will not get propagated to C. You will need to manually upload content to bucket B to trigger replication to C.
   - Delete markers are replicated.
-  - If you delete source replication bucket objects, they are deleted from replica target bucket too. When you delete a Delete marker or version from source, that action is not replicated.
+  - If you delete source replication bucket objects, they are deleted from replica target bucket too. i.e. the delete marker is placed on source and target bucket objects. When you delete a Delete marker or version from source, that action is not replicated.
 
-### S3 Lifecycle Management
+### S3 Lifecycle Management and Glacier
 
   - Objects stored in Glacier incur minimum 90 day storage cost.
   - Lifecycle management can be used in conjunction with versioning.
