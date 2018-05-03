@@ -420,59 +420,37 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 ## IAM 101
 
   - IAM user sigin link : https://akhileshdumca.signin.aws.amazon.com/console, akhileshdumca is replaced    with 12-digit account id number.
-
   - Configure who uses AWS and their level of access to the AWS Console.
-
-  - Centralized control over AWS Account
-
-  - Shared access to your AWS Account
-
-  - Granular permissions for users / services
-
+  - Centralized control over AWS Account.
+  - Shared access to your AWS Account.
+  - Granular permissions for users / services.
   - Identity Federation – Facebook, LinkedIn and Active Directory- You can login to AWS with your corporate credentials.
-
-  - Multi-factor authentication – helps secure the account. Especially for root account
-
-  - Provide temporary access to users/devices and services
-
-  - Allows you to setup your own password rotation policy
-
+  - Multi-factor authentication – helps secure the account. Especially for root account.
+  - Provide temporary access to users/devices and services.
+  - Allows you to setup your own password rotation policy.
   - Integration with other AWS services.
-
-  - Supports PCI-DSS compliance
+  - Supports PCI-DSS compliance.
 
 ### Critical Terms
 
 IAM consists of the following
 
   - Users – End users / people.
-
   - Groups – Users having one set of permissions.
-
   - Roles – Create roles and assign them to AWS resources.
-
-  - Policies – Document (JSON format) that defines one or more permissions – assign to user or groups or roles
+  - Policies – Document (JSON format) that defines one or more permissions – assign to user or groups or roles.
 
 ### IAM Features
 
-  - IAM is a global service. It is not region specific
-
-  - Root account is the email address you use to sign up for AWS
-
-  - AWS recommends very limited usage of root account
-
+  - IAM is a global service. It is not region specific.
+  - Root account is the email address you use to sign up for AWS.
+  - AWS recommends very limited usage of root account.
   - Setup MFA on root account.
-
   - You can attach permissions to individual users and groups.
-
   - Secret access key can be retrieved only once during user creation. In case you lose it then you can re-generate it.
-
   - You can inactive the Access Key Id by clicking users -> security credentials -> Access Keys and then click the **Make inactive** button.
-
   - IAM Password policy can be set to access the admin console.
-
   - New users have no permissions when first created. Everything has to be explicitly added.
-
   - New users are assigned Access Key Id and Secret Access Key when first created. You can use these keys either with AWS API or command line or SDK. Though these things can't be used to login to console as a alternative to username/password.
 
   - *Power User Access allows Access to all AWS services except the management of groups and users within   IAM.
@@ -491,12 +469,9 @@ IAM consists of the following
 
 Manage AWS resources via
 
-1. Management console – Using username and password
-
-2. Rest APIs – Using Access Key ID and Secret Access Key
-
-3. AWS CLI - Using Access Key ID and Secret Access Key
-
+1. Management console – Using username and password.
+2. Rest APIs – Using Access Key ID and Secret Access Key.
+3. AWS CLI - Using Access Key ID and Secret Access Key.
 4. AWS SDK – various programming languages supported.
 
 Using Access Key ID and Secret Access Key – can be used only via accessing programmatically. Akin to username and password used while accessing the console
