@@ -485,8 +485,8 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - There is unlimited storage.
   - Files are stored in Buckets.
   - S3 is universal namespace, that is, names must be unique globally.
-  - *S3 Bucket URL :-> https://s3-us-east-1.amazonaws.com/mylifecyclebucketak
-  - *Pattern :-> https://s3-[region-name].amazonaws.com/[bucketname]
+  - *S3 Bucket URL :-> https://s3.amazonaws.com/mylifecyclebucketak
+  - *Pattern :-> https://s3.amazonaws.com/[bucketname]
   - S3 File URL :-> https://s3.amazonaws.com/acloudguruwebsiteakhilesh/image1.PNG
   - Pattern :-> https://s3.amazonaws.com/[bucketname]/filename/[filename]
   - On successful completion of upload you'll get 200 status code.
