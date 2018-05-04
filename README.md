@@ -569,7 +569,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
     - Server side Encryption
       - Server side Encryption with Amazon S3 Managed Keys (SSE-S3 AES-256)
       - Server side Encryption with KMS (SSE-KMS)
-      - Server side Encryption Customer Provided Keys (SSE-C).  Key Management is responsibility of user.
+      - Server side Encryption Customer Provided Keys (SSE-C). Key Management is responsibility of user.
 
 ### S3 Versioning
 
