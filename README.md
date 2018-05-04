@@ -603,10 +603,12 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
 ### S3 Lifecycle Management and Glacier
 
-  - Objects stored in Glacier incur minimum 90 day storage cost.
-  - Lifecycle management can be used in conjunction with versioning.
+  - Lifecycle feature is used to manage the cost of the S3 service.
+  - All changes works with object creation date.
+  - Objects stored in Glacier incur minimum 90 day storage cost. so the time will be counted as the object palced in the Glacier not the object creation date.
+  - Lifecycle management can be used in conjunction with versioning. If versioning is enabled then there will be lifecycle management for that as well.
   - Objects can be transitioned to S3-IA after 30 days and to Glacier class storage - 30 days IA.
-  - You can also permanently delete objects.
+  - You can also permanently delete objects which will delete the object from the Glacier as well.
 
 
 ## CloudFront CDN Overview
