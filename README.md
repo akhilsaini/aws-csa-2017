@@ -559,22 +559,17 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - Tagging can be done on Bucket and Object level as well.
   - Object doesn't inherit the bucket tags.
 
-### S3 Security
-
-  - By default all newly created buckets are Private and the objects inside them are also private.
-  - Control Access to buckets using
-      - Bucket Policies – bucket wide.
-      - Access Control Lists – up to individual objects.
-  - S3 buckets can log all access requests to another S3 bucket even another AWS account.
-
 ### S3 Encryption
 
-  - Client Side Encryption
-    - Encrypt data at client side and then upload to S3.
-  - Server side Encryption
-    - Server side Encryption with Amazon S3 Managed Keys (SSE-S3 AES-256)
-    - Server side Encryption with KMS (SSE-KMS)
-    - Server side Encryption Customer Provided Keys (SSE-C).  Key Management is responsibility of user.
+  - In transit
+    - Using SSL/TLS
+  - Data at rest
+    - Client Side Encryption
+      - Encrypt data at client side and then upload to S3.
+    - Server side Encryption
+      - Server side Encryption with Amazon S3 Managed Keys (SSE-S3 AES-256)
+      - Server side Encryption with KMS (SSE-KMS)
+      - Server side Encryption Customer Provided Keys (SSE-C).  Key Management is responsibility of user.
 
 ### S3 Versioning
 
@@ -609,6 +604,14 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - Lifecycle management can be used in conjunction with versioning. If versioning is enabled then there will be lifecycle management for that as well.
   - Objects can be transitioned to S3-IA after 30 days and to Glacier class storage - 30 days IA.
   - You can also permanently delete objects which will delete the object from the Glacier as well.
+
+### S3 Security
+
+  - By default all newly created buckets are Private and the objects inside them are also private.
+  - Control Access to buckets using
+      - Bucket Policies – bucket wide.
+      - Access Control Lists – up to individual objects.
+  - S3 buckets can log all access requests to another S3 bucket even another AWS account.
 
 
 ## CloudFront CDN Overview
