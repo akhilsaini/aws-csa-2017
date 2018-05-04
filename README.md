@@ -616,55 +616,34 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### Important terms
 
   - CDN – collection of distributed servers where the content is served to users based on the user’s location and the location of content origin.
-
-  - Edge location – location where content will be cached. Different from AWS Region / AZ
-
-  - Origin – Can be S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53
-
+  - Edge location – location where content will be cached. Different from AWS Region / AZ.
+  - Origin – This is the origin of the files tha CDN can distribute.This can be S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53.
   - Distribution – is the name given to CDN collection which consists of Edge locations.
-
   - Web Distribution – Typically used for websites & web content only.
-
   - RTMP – Used for Media Streaming. Adobe Flash media server’s protocol – video streaming.
-
   - First request is slow as it comes from source origin. Subsequent requests improve speed as they are cached in nearest edge location and routed there until TTL expires.
-
-  - CloudFront also works with non AWS origin which can be on premise as well. .
-
-  - Edge locations are for read and write as well. Objects PUT on edge location are sent to origin
-
-  - Objects are cached for life of TTL. TTL can be set for 0 seconds to 365 days. Default TTL is 24 hours. If objects change more frequently update the TTL
-
+  - CloudFront also works with non AWS origin which can be on premise as well.
+  - Edge locations are for read and write as well. Objects PUT on edge location are sent to origin.
+  - Objects are cached for life of TTL. TTL can be set for 0 seconds to 365 days. Default TTL is 24 hours. If objects change more frequently update the TTL.
   - You can clear cached objects, with charges.
-
-  - Origin domain name – either S3 bucket, ELB or on premise domain
+  - Origin domain name – either S3 bucket, ELB or on premise domain.
 
 ### CloudFront Security.
 
-  - You can force them to use CDN URL instead of S3 DNS
-
-  - To restrict bucket access you need to create origin access identity. And allow this user read permission S3 bucket content –
-
-  - Set video protocol policy – redirect http to https, http or https
-
+  - You can force them to use CDN URL instead of S3 DNS by restricting access to to S3.
+  - To restrict bucket access you need to create origin access identity. And allow this user read permission S3 bucket content.
+  - Set video protocol policy – redirect http to https, http or https.
   - Allows various HTTP methods – GET, PUT, POST, PATCH, DELETE, and HEAD.
-
-  - Restrict viewer access for S3 and CDN using pre-Signed URLs or Signed cookies. E.g. You can view video only using that URL
-
-  - Using Web Application Firewalls to prevent SQL injection, CSS attacks
-
+  - Restrict viewer access for S3 and CDN using pre-Signed URLs or Signed cookies. E.g. You can view video only using that URL.
+  - Using Web Application Firewalls to prevent SQL injection, CSS attacks.
   - For https access, you can either use default CloudFront certificate or own certificate can be imported via ACM.
-
   - Provisioning / Updating CloudFront distribution takes up to 15-20 minutes.
-
   - Geo-restriction can be setup. Either whitelist or blacklist – countries from where content can be accessed.
-
-  - Invalidating removes objects from CloudFront. It can be forced to remove from Cache – obviously costs.
-
+  - Logging can also be enabled by checking the radio button. Logging can also be done in different bucket.
+  - You can blacklist or whitelist content countrywise. blacklist/whitelist is mutually exclusive i.e. you can perform either one.
+  - Invalidating(Invalidation) removes objects from CloudFront. It can be forced to remove from Cache – obviously costs.
   - You can force users to get content via CloudFront after removing read access to S3 bucket.
-
   - You can also upload content to CloudFront.
-
 
 
 ## Storage Gateway
