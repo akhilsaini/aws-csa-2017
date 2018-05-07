@@ -649,7 +649,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - You can also upload content to CloudFront.
 
 
-## Storage Gateway(Important exam topic)
+### Storage Gateway(Important exam topic)
 
   - It is a service which connects an on-premises software appliance (virtual) with cloud based storage to provide seamless and secure connectivity between the two. Either via internet or Direct connect.
   - It can also provide connectivity from EC2 instance in VPC to S3 via Storage Gateway in same VPC.
@@ -670,13 +670,13 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
  3.Gateway Virtual Tape Library (VTL) – Backup and Archiving solution. Create tapes and send to S3. You can use existing backup applications like NetBackup, Backup Exec, and Veam etc.
 
-## Snowball
+### Snowball
 
 Next version of Import / Export Gateway
 
-You could accelerate moving large amounts of data into and out of AWS using portable storage devices for transport. Ship the storage device – no need to transfer over the internet.  Problem arose with different types of disks
+You could accelerate moving large amounts of data into and out of AWS using portable storage devices for transport. Ship the storage device – no need to transfer over the internet.  Problem arose with different types of disks. 3 types of Snowballs mentioned below.
 
-### Snowball Standard
+#### Snowball Standard
   - Bigger than briefcase sized storage devices
   - Petabyte scale data transport solution used to transfer data in/out of AWS
   - Cost is 1/5th as compared to transfer via high speed internet.
@@ -685,7 +685,7 @@ You could accelerate moving large amounts of data into and out of AWS using port
   - Once data is transferred, AWS performs software erasure of Snowball appliance.
 
 
-### Snowball Edge
+#### Snowball Edge
   - 100 TB data transfer device which has onboard storage and compute capabilities.
   - Move large amounts of data in and out of AWS, as a temporary storage tier for large local datasets.
   - You can run Lambda functions.
@@ -693,7 +693,7 @@ You could accelerate moving large amounts of data into and out of AWS using port
   - Snowball Edges can be clustered together to process your data on premise
 
 
-### Snowmobile
+#### Snowmobile
   - Massive 45 foot long ruggedized shipping container, pulled by a truck.
   - Petabyte or Exabyte of data that has to be transferred to AWS. 100 PB per snowmobile.
   - You can use it for data center migration.
