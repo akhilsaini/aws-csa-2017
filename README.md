@@ -619,8 +619,8 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### Important terms
 
   - CDN – collection of distributed servers where the content is served to users based on the user’s location and the location of content origin.
-  - Edge location – location where content will be cached. Different from AWS Region / AZ.
-  - Origin – This is the origin of the files tha CDN can distribute.This can be S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53.
+  - Edge location – location where content will be cached. Different from AWS Region / AZ. AWS uses global network of 116 Point of Presence (105 edge locations and 11 Regional edge caches) in 56 cities across 24 countries.
+  - Origin – This is the origin of the files tha CDN can distribute.This can be S3 Bucket, an EC2 Instance, an Elastic Load Balancer or Route53. Origin need not to be from AWS, you can have custom origin as well.
   - Distribution – is the name given to CDN collection which consists of Edge locations.
   - Web Distribution – Typically used for websites & web content only.
   - RTMP – Used for Media Streaming. Adobe Flash media server’s protocol – video streaming.
@@ -649,16 +649,12 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - You can also upload content to CloudFront.
 
 
-## Storage Gateway
+## Storage Gateway(Important exam topic)
 
   - It is a service which connects an on-premises software appliance (virtual) with cloud based storage to provide seamless and secure connectivity between the two. Either via internet or Direct connect.
-
-  - It can also provide connectivity from EC2 instance in VPC to S3 via Storage Gateway in same VPC
-
-  - The virtual appliance will asynchronously replicate information up to S3 or Glacier
-
+  - It can also provide connectivity from EC2 instance in VPC to S3 via Storage Gateway in same VPC.
+  - The virtual appliance will asynchronously replicate information up to S3 or Glacier.
   - Can be downloaded as a VM – VMware ESXi / Hyper-V.
-
   - 4 Types of Storage Gateways.
 
  1.[Brand New] *File Gateway (NFS) – Just store files in S3 – Word, Pictures, PDFs, and no OS. ( Saves a lot of money)
