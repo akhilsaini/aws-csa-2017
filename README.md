@@ -490,6 +490,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - S3 File URL :-> https://s3.amazonaws.com/acloudguruwebsiteakhilesh/image1.PNG
   - Pattern :-> https://s3.amazonaws.com/[bucketname]/filename/[filename]
   - On successful completion of upload you'll get 200 status code.
+  - You can upload files faster by enabling the multipart upload.
 
 ### S3 Data Consistency Model
 
@@ -670,13 +671,13 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 
  3.Gateway Virtual Tape Library (VTL) – Backup and Archiving solution. Create tapes and send to S3. You can use existing backup applications like NetBackup, Backup Exec, and Veam etc.
 
-### Snowball
+## Snowball
 
 Next version of Import / Export Gateway
 
-You could accelerate moving large amounts of data into and out of AWS using portable storage devices for transport. Ship the storage device – no need to transfer over the internet.  Problem arose with different types of disks. 3 types of Snowballs mentioned below.
+You could accelerate moving large amounts of data into and out of AWS using portable storage devices for transport. Ship the storage device – no need to transfer over the internet.  Problem arose with different types of disks. 3 types of Snowballs mentioned below. You can track your snowball.
 
-#### Snowball Standard
+### Snowball Standard
   - Bigger than briefcase sized storage devices
   - Petabyte scale data transport solution used to transfer data in/out of AWS
   - Cost is 1/5th as compared to transfer via high speed internet.
@@ -685,15 +686,16 @@ You could accelerate moving large amounts of data into and out of AWS using port
   - Once data is transferred, AWS performs software erasure of Snowball appliance.
 
 
-#### Snowball Edge
+### Snowball Edge
   - 100 TB data transfer device which has onboard storage and compute capabilities.
+  - Little AWS data center as you can perform comupte as well.
   - Move large amounts of data in and out of AWS, as a temporary storage tier for large local datasets.
   - You can run Lambda functions.
   - Devices connect to existing applications and infrastructure using standard storage interfaces.
   - Snowball Edges can be clustered together to process your data on premise
 
 
-#### Snowmobile
+### Snowmobile
   - Massive 45 foot long ruggedized shipping container, pulled by a truck.
   - Petabyte or Exabyte of data that has to be transferred to AWS. 100 PB per snowmobile.
   - You can use it for data center migration.
@@ -705,6 +707,12 @@ Using snowball – Import / Export S3. If using Glacier first need to import int
 It utilizes the CloudFront Edge Network to accelerate uploads to S3. Instead of uploading directly to S3, you can use a distinct URL to upload directly to an edge location which will then transfer to S3 using Amazon’s backbone network.
 
 The farther you are from S3 bucket region the higher is the improvement you can observe using S3 Transfer Acceleration. High cost for usage than standard S3 transfer rates.
+
+## S3 Statis Website Hosting
+
+- Bucket name and domain name must be same.
+- Static website endpoint URL : http://acloudguruwebsiteak.s3-website-us-east-1.amazonaws.com
+- Static website endpoint Pattern : http://[bucket_name].s3-website-[region_name].amazonaws.com
 
 # EC2 – The Backbone of AWS
 
