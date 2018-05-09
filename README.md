@@ -724,10 +724,10 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 
   - Helps developers failure resilient systems and isolate them
 
-### EC2 Options
-  - **On demand** :
+### EC2 Options pricing
+  - **On demand** :(Most common)
     - Users that want low cost and flexibility of Amazon EC2 without any upfront payment of long term commitment.
-    - Allows you to pay fixed rate by the hour (or by the second) with no commitment.
+    - Allows you to pay fixed rate by the hour for windows (or by the second for Linux instances) with no commitment.
     - Applications with short term, spiky usage patterns or unpredictable workloads that cannot be interrupted.
     - New apps on AWS which are being developed and tested for the first time.
   - **Reserved** :
@@ -737,19 +737,25 @@ The farther you are from S3 bucket region the higher is the improvement you can 
     - Further discount if upfront payment
       - Standard RIs (Upto 75% off on demand)
       - Convertible RIs (Upto 54% off on demand) : Capability to change the attributes of the RI as long as the exchange results in the creation of Reserved Instances of equal or greater value.
-      - Scheduled RIs available to launch within the time windows you reserve. This option allows you to match your capacity reservation to a predictable recurring schedule that only requires a fraction of day, a week or a month. 
+      - Scheduled RIs available to launch within the time windows you reserve. This option allows you to match your capacity reservation to a predictable recurring schedule that only requires a fraction of day, a week or a month.
+  - **Scheduled Instances** : 
+    - Purchase instances that are always avaliable on a specified recurring schedule, for 1-year term.
   - **Spot** :
     - Enable you to bid whatever price you want for instance capacity, providing for even greater savings. Your application should be having flexible start/stop time.
     - Bid your price for compute. When bid price is higher than Spot price, then you can provision it. When it goes lower, instance is terminated.
     - Useful for applications that have flexible start / stop times.
     - Applications that are feasible at very low cost.
     - Users with urgent computing needs for large amounts of additional capacity.
+    - Read Case studies in FAQ doc. Gnomic companies or Insurance companies.
   - **Dedicated Hosts** :
+    - Pay for Physical host that is fully dedicated to running your instances and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.
     - Useful for regulatory requirements that may not support multitenant virtualization.
     - Great for licensing which doesn't support multi-tenancy or cloud deployments.
     - Can be purchased on-demand (hourly).
     - Can be purchased as a reservation for up to 70% off the on-demand price.
     - Physical EC2 server dedicated for your use. Dedicated hosts can help you reduce costs by allowing you to use existing server-bound software licenses.
+  - **Dedicated Instances** : 
+    - Pay, by the hour, for instances that run on single-tenant hardware.
 
 ### EC2 Instance Types
 
@@ -780,27 +786,28 @@ EC2 Key Pairs are region specific
 
 ## EBS
 
-- Block based storage
-
-- You can install OS, Database on it, unlike S3
-
+- Block based storage i.e. You can install OS, Database on it, unlike S3.
+- Allows you to create storage volumes(disks) and attach them to EC2 instances.
 - Placed in specific AZ. Automatically replicated within the AZ to protect from failure.
 
-- [Exam Tips]*  - EBS Volume Types**
+### EBS Volume Types : 5
 
-SSD Drives
-
-  - (root volume) General Purpose SSD – up to 10,000 IOPS. 3 IOPS per GB. Balances price and performance. You can burst upto 3000 IOPS for 1GB
-
-- (root volume) Provisioned SSD – when you need more than 10,000 IOPS. Large RDBMS DBs and NoSQL DBs. Up to 20000 IOPS now
-
-Magnetic Drives
-
-- HDD, Throughput Optimized– ST1 – Required for data written in sequence. Big Data, DWH, Log processing. Cannot be used as boot volumes
-
-- HDD, Cold– SC1 – Data that isn’t frequently accessed. E.g. File Server. Cannot be used as boot volume
-
-- (root volume) HDD, Magnetic (Standard) – *Cheapest bootable EBS volume type*. Used for apps where data is less frequently accessed and low cost is important.
+- SSD Drives
+  - (root volume) General Purpose SSD – up to 10,000 IOPS. 3 IOPS per GB. Balances price and performance. You can burst upto 3000 IOPS for 1GB.
+  - (root volume) Provisioned SSD – when you need more than 10,000 IOPS.Designed for I/O intensive applications such as large RDBMS DBs and NoSQL DBs. Up to 20000 IOPS now.
+- Magnetic Drives(Old school spinning disks)
+  - HDD, Throughput Optimized (**ST1**) – Required for data written in sequence and can be accessed frequently.
+    - Can be used with Big Data
+    - Can be used with Data Warehousing
+    - Can be used with Log processing.
+    - Cannot be used as boot volumes.
+  - HDD, Cold (**SC1**) – Data that isn’t frequently accessed.
+    - Lowest cost storage
+    - Can be used as file server, as you might not want to put files on s3 for whatever reason.
+    - Cannot be used as boot volume.
+- Magnetic (Standard) – *Cheapest bootable EBS volume type*. 
+  - Used for apps where data is less frequently accessed and low cost is important.
+  - Can be used as boot volumes.
 
 - You cannot mount 1 EBS volume to multiple EC2 Instances. Use EFS instead.
 
