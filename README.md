@@ -774,6 +774,7 @@ D – Density , R – RAM , M – Main Choice ( default) – Apps, C – Compute
 Use M3 for general purpose instances – balanced compute, memory and network resources
 
 [Exam Tip] You will be asked to provide which instance type to use for a given scenario. Usually 3 options are fictitious.
+[Exam Tip ] Read FAQ.
 
 EC2 Key Pairs are region specific
 
