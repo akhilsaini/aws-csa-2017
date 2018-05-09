@@ -724,41 +724,32 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 
   - Helps developers failure resilient systems and isolate them
 
-### EC2 Pricing
-
-  - On demand.
-
-  - Pay per hour of usage.
-
-  - Applications with short term, spiky usage patterns or unpredictable workloads that cannot be interrupted.
-
-  - New apps on AWS
-
-  - Reserved pricing
-
-  - Reserve capacity over significant period of time. Significant discount.
-
-  - Applications with steady or predictable usage over a period of time. Reserved capacity required.
-
-  - Further discount if upfront payment
-
-  - Spot pricing –
-
-  - Bid your price for compute. When bid price is higher than Spot price, then you can provision it. When it goes lower, instance is terminated. Useful for applications who have flexible start / stop times
-
-  - [Exam Tip] If AWS terminates instance, you are not charged for partial hour. If you terminate, you will be charged for the hour.
-
-  - Applications that are feasible only at very low compute prices. E.g. pharma simulations
-
-  - Applications with urgent computing capacity
-
-  - Dedicated physical machines – pay by hour.
-
-  - Massive discount for reserved instances over a long period of time – upto 70% for 3 years.
-
-  - Useful for regulatory requirements
-
-  - Certain licensing agreements prevent usage on virtual machine / multi-tenancy deployments.
+### EC2 Options
+  - **On demand** :
+    - Users that want low cost and flexibility of Amazon EC2 without any upfront payment of long term commitment.
+    - Allows you to pay fixed rate by the hour (or by the second) with no commitment.
+    - Applications with short term, spiky usage patterns or unpredictable workloads that cannot be interrupted.
+    - New apps on AWS which are being developed and tested for the first time.
+  - **Reserved** :
+    - provide you with a capacity reservation, and offer a significant discount on the hourly charge for an instance. Terms can be 1 or 3 Year/s.
+    - Applications with steady or predictable usage over a period of time. 
+    - Reserved capacity required.
+    - Further discount if upfront payment
+      - Standard RIs (Upto 75% off on demand)
+      - Convertible RIs (Upto 54% off on demand) : Capability to change the attributes of the RI as long as the exchange results in the creation of Reserved Instances of equal or greater value.
+      - Scheduled RIs available to launch within the time windows you reserve. This option allows you to match your capacity reservation to a predictable recurring schedule that only requires a fraction of day, a week or a month. 
+  - **Spot** :
+    - Enable you to bid whatever price you want for instance capacity, providing for even greater savings. Your application should be having flexible start/stop time.
+    - Bid your price for compute. When bid price is higher than Spot price, then you can provision it. When it goes lower, instance is terminated.
+    - Useful for applications that have flexible start / stop times.
+    - Applications that are feasible at very low cost.
+    - Users with urgent computing needs for large amounts of additional capacity.
+  - **Dedicated Hosts** :
+    - Useful for regulatory requirements that may not support multitenant virtualization.
+    - Great for licensing which doesn't support multi-tenancy or cloud deployments.
+    - Can be purchased on-demand (hourly).
+    - Can be purchased as a reservation for up to 70% off the on-demand price.
+    - Physical EC2 server dedicated for your use. Dedicated hosts can help you reduce costs by allowing you to use existing server-bound software licenses.
 
 ### EC2 Instance Types
 
@@ -776,9 +767,9 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 |10|X1|Memory Optimized|SAP HANA / Apache Spark| - |
 
 
-Acronym – **DIRT MCG FPX*  - 	
+Acronym – **DR MC GIFT PX**
 
-*D – Density , I  - IOPS , R – RAM , T – cheap T2, M – Main Choice ( default) – Apps, C – Compute,  G – Graphics, F – FPGA , P – Graphics – Pics – Parallel Processing , X – Extreme Memory*  - *
+D – Density , I  - IOPS , R – RAM , T – cheap T2, M – Main Choice ( default) – Apps, C – Compute,  G – Graphics, F – FPGA , P – Graphics – Pics – Parallel Processing , X – Extreme Memory*  - *
 
 Use M3 for general purpose instances – balanced compute, memory and network resources
 
