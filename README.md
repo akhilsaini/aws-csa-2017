@@ -769,7 +769,7 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 
 Acronym – **DR MC GIFT PX**
 
-D – Density , I  - IOPS , R – RAM , T – cheap T2, M – Main Choice ( default) – Apps, C – Compute,  G – Graphics, F – FPGA , P – Graphics – Pics – Parallel Processing , X – Extreme Memory*  - *
+D – Density , R – RAM , M – Main Choice ( default) – Apps, C – Compute,  G – Graphics, I  - IOPS , F – FPGA , T – cheap T2, P – Graphics – Pics – Parallel Processing , X – Extreme Memory
 
 Use M3 for general purpose instances – balanced compute, memory and network resources
 
