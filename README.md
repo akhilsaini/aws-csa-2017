@@ -805,7 +805,7 @@ EC2 Key Pairs are region specific
     - Lowest cost storage
     - Can be used as file server, as you might not want to put files on s3 for whatever reason.
     - Cannot be used as boot volume.
-- Magnetic (Standard) – *Cheapest bootable EBS volume type*. 
+- HDD,Magnetic (Standard) – *Cheapest bootable EBS volume type*. 
   - Used for apps where data is less frequently accessed and low cost is important.
   - Can be used as boot volumes.
 
