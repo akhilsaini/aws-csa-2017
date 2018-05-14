@@ -789,12 +789,15 @@ EC2 Key Pairs are region specific
 - Block based storage i.e. You can install OS, Database on it, unlike S3.
 - Allows you to create storage volumes(disks) and attach them to EC2 instances.
 - Placed in specific AZ. Automatically replicated within the AZ to protect from failure.
+- Note : You cannot mount 1 EBS volume to multiple EC2 Instances. Use EFS instead.
+- Consider EBS volume as pluggable internal HDD.
+- To get some sharing thing we'll use EFS.
 
 ### EBS Volume Types : 5
 
 - SSD Drives
-  - (root volume) General Purpose SSD – up to 10,000 IOPS. 3 IOPS per GB. Balances price and performance. You can burst upto 3000 IOPS for 1GB.
-  - (root volume) Provisioned SSD – when you need more than 10,000 IOPS.Designed for I/O intensive applications such as large RDBMS DBs and NoSQL DBs. Up to 20000 IOPS now.
+  - (root volume) General Purpose SSD ( **GP2** ) – up to 10,000 IOPS. 3 IOPS per GB. Balances price and performance. You can burst upto 3000 IOPS for 1GB.
+  - (root volume) Provisioned IOPS SSD ( **IO1** ) – when you need more than 10,000 IOPS.Designed for I/O intensive applications such as large RDBMS DBs and NoSQL DBs. Up to 20000 IOPS now. It has 50 IOPS per GiB.
 - Magnetic Drives(Old school spinning disks)
   - HDD, Throughput Optimized (**ST1**) – Required for data written in sequence and can be accessed frequently.
     - Can be used with Big Data
@@ -809,16 +812,12 @@ EC2 Key Pairs are region specific
   - Used for apps where data is less frequently accessed and low cost is important.
   - Can be used as boot volumes.
 
-- You cannot mount 1 EBS volume to multiple EC2 Instances. Use EFS instead.
+### Important notes
 
 - EBS Root Volumes can be encrypted on custom AMIs only. Not on the default available AMIs. To encrypt root volumes, create a new AMI and encrypt root volume. You can also encrypt using 3rd party software like Bit Locker. Additional volumes attached to EC2 instance can be encrypted.
-
 - EC2 – 1 subnet equals 1 Availability Zone.
-
 - Default VPC & Security group is created in when you create your account.
-
 - Default CloudWatch monitoring – every 5 mins. Can enabled advanced monitoring to check at interval of each minute.
-
 - Volume – Virtual Hard Disk
 
 - Tag everything on AWS
