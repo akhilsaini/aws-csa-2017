@@ -828,7 +828,7 @@ EC2 Key Pairs are region specific
 
 - Termination protection is turned off by default. You need to turn it on.
 
-- When instance is terminated, root volume is deleted. You can turn if off.
+- By default when instance is terminated, root volume is deleted. But you can turn if off at the time of instance creation by unchecking the **delete on termination** checkbox.
 
 - System Status Check – Overall health of hosting infrastructure. If they arise, Terminate instance and recreate
 
