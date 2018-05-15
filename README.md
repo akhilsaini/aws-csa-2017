@@ -824,6 +824,7 @@ EC2 Key Pairs are region specific
 - Default Windows EC2 username is Administrator.
 - Termination protection is turned off by default. You need to turn it on.
 - By default when instance(EBS-Backed) is terminated, root volume is deleted. But you can turn if off at the time of instance creation by unchecking the **delete on termination** checkbox.
+- By default volumes other than root will not be deleted when the instance is terminated. You need to explicityly check the **delete on termination** checkbox at the time of attaching these other volumes.
 - System Status Check – Overall health of hosting infrastructure. If they arise, Terminate instance and recreate.
 - Instance Status Check – Health of instance. If they arise, reboot the instance.
 - By default root volumne( from AWS Given AMIs ) can't be encrypted(though you can use third party tools like bitlocker for windows) while external EBS volume can be encrypted at the time of attaching that EBS volume to instance. To encrypt the root volumne you need to create copy/AMI from that EC2 instance and at the time of this copying process you can encrypt that.
@@ -845,23 +846,36 @@ EC2 Key Pairs are region specific
   - Multiple security groups can be attached to an instance.
   - You can not block specific IP using Security Groups, instead use Network Access Control List.
 
-## Volumes and Snapshots
+## EBS Volumes and Snapshots
 
   - Volumes are virtual hard disks.
-
-  - You can attach volume to EC2 instance belonging to same AZ
-
-  - To Detach a volume from EC2 instance, you have to umount it first
-
-  - Snapshots are point in time copies of volumes – stored in S3. Taking first snapshot takes a while.
-
+  - You can attach volume to EC2 instance belonging to same AZ. Consider this as a HDD can't be far from the motherboard as the latency would be very very much.
+  - Root volume can be recognised based on the snapshot name, as other volumes doesn't have snapshot name by default.
+  - We can modify the volume type on the fly(without any downtime) for root volume i.e. can interchange from gp2,io1 to each other(by clicking the **modify volumne** action button) and can even change the size also.
+    - Apart from the root volume, other volumes can also be modified on the fly but Standard Magnetic volume can't be modified.
+  - Task : Create volume/instance in another Availability Zone from existing volume.
+    - First take snapshot of ec2-volume(you should stop the instance but not necessary)
+    - Go to snapshots and find the above created snapshot and select that snapshot
+    - Click actions button and click either **create volumne** or **create image**.
+      - create volume
+        - you can change volume type
+        - you can change size
+        - you can change availability zone
+  - Task : Move ec2-instance from one region to another
+    - First take snapshot.
+    - Copy snapshot to another region.
+    - Create ec2-instance with that snapshot.
+  - To Detach a volume from EC2 instance, you have to umount it first.
+  - Snapshots are point in time copies of volumes – stored in S3(majorly used for backups). Taking first snapshot takes a while.
   - Subsequent snapshots will only store the delta in S3. Only changed blocks are stored in S3.
-
-  - You can create volumes from Snapshots. During this you can also change Volume Storage Type
-
-  - Volume is just block data. You need to format it create specific file system e.g. ext4
-
-  - Root Volume is one where OS is installed / booted. It is not encrypted by default on AWS AMIs
+  - You can create volumes from Snapshots. During this you can also change Volume Storage Type.
+  - Volume is just block data. You need to format it create specific file system e.g. ext4.
+  - Root Volume is one where OS is installed / booted. It is not encrypted by default on AWS AMIs.
+  - AMIs can be creaeted from volumes/snapshots.
+  - Snapshots of encrypted volumes will automatically will be encrypted.
+  - Volumes restored from encrypted snapshots are encrypted automatically.
+  - You can share snapshots but only if they are un-encrypted.
+    - These snapshots can be shared with other AWS accounts or made public. 
 
 ### RAID, Volumes & Snapshots.
 
