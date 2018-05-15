@@ -818,21 +818,15 @@ EC2 Key Pairs are region specific
 - EC2 – 1 subnet equals 1 Availability Zone.
 - Default VPC & Security group is created in when you create your account.
 - Default CloudWatch monitoring – every 5 mins. Can enabled advanced monitoring to check at interval of each minute.
-- Volume – Virtual Hard Disk
-
-- Tag everything on AWS
-
-- Default Linux EC2 username is ec2-user
-
-- Default Windows EC2 username is Administrator
-
+- Volume – Virtual Hard Disk.
+- Tag everything on AWS.
+- Default Linux EC2 username is ec2-user.
+- Default Windows EC2 username is Administrator.
 - Termination protection is turned off by default. You need to turn it on.
-
-- By default when instance is terminated, root volume is deleted. But you can turn if off at the time of instance creation by unchecking the **delete on termination** checkbox.
-
-- System Status Check – Overall health of hosting infrastructure. If they arise, Terminate instance and recreate
-
+- By default when instance(EBS-Backed) is terminated, root volume is deleted. But you can turn if off at the time of instance creation by unchecking the **delete on termination** checkbox.
+- System Status Check – Overall health of hosting infrastructure. If they arise, Terminate instance and recreate.
 - Instance Status Check – Health of instance. If they arise, reboot the instance.
+- By default root volumne( from AWS Given AMIs ) can't be encrypted(though you can use third party tools like bitlocker for windows) while external EBS volume can be encrypted at the time of attaching that EBS volume to instance. To encrypt the root volumne you need to create copy/AMI from that EC2 instance and at the time of this copying process you can encrypt that.
 
 ## EC2 Security Groups
 
