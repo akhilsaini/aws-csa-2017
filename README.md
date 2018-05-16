@@ -879,34 +879,22 @@ EC2 Key Pairs are region specific
 
 ### RAID, Volumes & Snapshots.
 
-  - RAID 0 – Striped, No Redundancy , Good Performance – No Backup/Failover
-
-  - RAID 1 – mirrored, Redundancy
-
-  - RAID 5 – Good for reads, bad for writes. AWS doesn’t recommend using RAID 5 on EBS
-
-  - RAID 10 – Raid 0 + Raid 1
-
-  - Use RAID Arrays when a single volume IOPs are not sufficient for your need. E.g. Database. Then you create RAID Array to meet IOPs requirements.
-
+  - RAID - Redundant array of independent disks. Types of RAID below.
+    - RAID 0 – Striped, No Redundancy , Good Performance – No Backup/Failover i.e. if one fails from the array then entire array is failed. Majorly used for gaming pcs.
+    - RAID 1 – mirrored, Redundancy.
+    - RAID 5 – Good for reads, bad for writes. AWS doesn’t recommend using RAID 5 on EBS.
+    - RAID 10 – Raid 0 + Raid 1 i.e. Striped & Mirrored, Good Redundancy and Good Performance.
+  - Use RAID Arrays when a single volume IOPs are not sufficient for your need. E.g. Database. Then you create RAID Array to meet IOPs requirements. Typically we use RAID 0 or RAID 10.
   - To take snapshot of RAID Array –
-
-    1. Stop the application from writing to cache and  flush all cache to Disk
-
-    2. Freeze the file system
-
-    3. Umount the RAID Array
-
-    4. Shutdown the EC2 instance
-
+    - Stop the application from writing to disk.
+    - Flush all cache to Disk.
+        - Freeze the file system.
+        - Umount the RAID Array.
+        - Shutdown the EC2 instance.
   - Snapshots of encrypted volumes are encrypted automatically.
-
   - You can copy snapshot to another region while encrypting it.
-
   - Create Image from snapshot.
-
   - The EC2 instance thus created will have root volume encrypted.
-
   - You can’t share encrypted snapshots as the encryption key is tied to your account.
 
 ## EBS backed v/s Instance store
