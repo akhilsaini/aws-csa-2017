@@ -923,6 +923,16 @@ EC2 Key Pairs are region specific
   - You will not lose data if you reboot for both.
   - By default, both ROOT volumes will be deleted on termination, however with EBS, you can ask AWS not to delete the volume upon instance termination.
 
+## ELB(Elastic Load Balancer)
+  - Types
+    - Application Load Balancer
+      - Works at layer 7 i.e. application layer of Network. For HTTP/HTTPS.
+    - Classic Load Balancer(Important for exam)
+      - Works at layer 4 i.e. TCP layer of Network. can also do layer 7 routing as well.
+  - ELB doesn't have public IP only DNS name unlike the EC2 instance for which you get both.
+  - If instance is out of service, ELB will not send traffic to that instance.
+  - Instances monitored by ELB are reported as : Inservice or OutofService based on healthy threshold in healthy check.
+
 ## EC2 Status Checks
 
 There are two types of status checks: system status checks and instance status checks.
