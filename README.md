@@ -946,12 +946,9 @@ Monitor the AWS systems required to use your instance to ensure they are working
 
 The following are examples of problems that can cause system status checks to fail:
 
-  - Loss of network connectivity
-
-  - Loss of system power
-
-  - Software issues on the physical host
-
+  - Loss of network connectivity.
+  - Loss of system power.
+  - Software issues on the physical host.
   - Hardware issues on the physical host that impact network reachability
 
 ## Instance Status Checks
@@ -960,17 +957,11 @@ Monitor the software and network configuration of your individual instance. Thes
 
 The following are examples of problems that can cause instance status checks to fail:
 
-  - Failed system status checks
-
-  - Incorrect networking or startup configuration
-
-  - Exhausted memory
-
-  - Corrupted file system
-
-  - Incompatible kernel
-
-
+  - Failed system status checks.
+  - Incorrect networking or startup configuration.
+  - Exhausted memory.
+  - Corrupted file system.
+  - Incompatible kernel.
 
 ## CloudWatch
 
