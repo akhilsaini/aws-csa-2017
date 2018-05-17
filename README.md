@@ -965,20 +965,13 @@ The following are examples of problems that can cause instance status checks to 
 
 ## CloudWatch
 
-  - Default Metrics – Network, Disk , CPU and Status check ( Instance and System)
-
-  - Memory – RAM is a custom metric
-
+  - Default Metrics – Network, Disk , CPU and Status check ( Instance and Hypervisor System level).
+  - Memory – RAM is a custom metric.
   - You can create custom dashboards all CloudWatch metrics.
-
   - CloudWatch alarms – set notifications when particular thresholds are hit.
-
   - CloudWatch events help you respond to state changes. E.g. run Lambda function in response to.
-
-  - CloudWatch logs helps you monitor EC2 instance/application/system logs. Logs send data to CloudWatch
-
+  - CloudWatch logs helps you monitor EC2 instance/application/system logs. Logs send data to CloudWatch.
   - Standard monitoring 5 mins. Detailed monitoring 1 minute.
-
   - CloudWatch is for logging. CloudTrail is for auditing your calls.
 
 ## AWS CLI Usage
