@@ -896,24 +896,32 @@ EC2 Key Pairs are region specific
   - Create Image from snapshot.
   - The EC2 instance thus created will have root volume encrypted.
   - You can’t share encrypted snapshots as the encryption key is tied to your account.
+  - By default the public AMIs are not encrypted.
 
 ## EBS backed v/s Instance store
 
-  - You can reboot or terminate instance store backed EC2 VMs
-
-  - You can start , stop , reboot or terminate EBS backed EC2 VMs
-
-  - EC2 instance on instance store is lost if host hypervisor fails. Not so with EBS backed instances.
-
-  - EBS volumes can be attached / detached to EC2 instances. One at a time
-
-  - EBS backed AMI is from EBS snapshot
-
-  - Instance store back volume is from template in S3. Hence slower to provision
-
-  - You will not lose data is you reboot for both.
-
-  - With EBS, you can ask AWS not to delete the volume upon instance termination.
+  - AMIs can be selected based on
+    - Regions(see Regions and AZs)
+    - Operating System
+    - Architecture(32-bit or 64-bit)
+    - Launch Permissions
+    - Storage for the Root device(Root device volumne)
+      - Instance Store(EPHEMERAL[less durable,fragile] storage)
+        - The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
+        - This can be attached only at the time of instance creation.
+        - At the time of instance creation extra added Instance store can't be encypted.
+        - You can't stop the instance store backed EC2 VMs, only reboot or terminate are the available options.
+        - EC2 instance on instance store is lost if host hypervisor fails. Not so with EBS backed instances.
+        - Instance store back volume is from template in S3. Hence slower to provision.
+        - Instance store volumes doesn't show up in the Volumes section in AWS console. That's why you can't detach them from the EC2-instance.
+      - EBS Backed Volumes
+        - The root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
+        - This can be attached even after the instance creation.
+        - You can start , stop , reboot or terminate EBS backed EC2 VMs.
+        - EBS backed AMI is from EBS snapshot.  
+        - EBS volumes can be attached / detached to EC2 instances.Though One at a time.  
+  - You will not lose data if you reboot for both.
+  - By default, both ROOT volumes will be deleted on termination, however with EBS, you can ask AWS not to delete the volume upon instance termination.
 
 ## EC2 Status Checks
 
