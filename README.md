@@ -53,7 +53,10 @@ Table of Contents
       * [EC2 Security Groups](#ec2-security-groups)                                                                                     
       * [Volumes and Snapshots](#volumes-and-snapshots)                                                                                 
          * [RAID, Volumes &amp; Snapshots.](#raid-volumes--snapshots)                                                                   
-      * [EBS backed v/s Instance store](#ebs-backed-vs-instance-store)                                                                 
+      * [EBS backed v/s Instance store](#ebs-backed-vs-instance-store)  
+
+      * [ELB(Elastic Load Balancer)](#elbelastic-load-balancer)  
+
       * [EC2 Status Checks](#ec2-status-checks)                                                                                         
          * [System Status Checks](#system-status-checks)                                                                               
       * [Instance Status Checks](#instance-status-checks)                                                                               
