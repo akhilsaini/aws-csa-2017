@@ -65,7 +65,7 @@ Table of Contents
       * [IAM Roles for EC2](#iam-roles-for-ec2)                                                                                         
       * [Bootstrap scripts.](#bootstrap-scripts)                                                                                       
       * [EC2 Instance Meta-Data](#ec2-instance-meta-data)                                                                               
-      * [Launch Configurations & Auto Scaling Groups 101](#auto-scaling-101)                                                                                           
+      * [Launch Configurations & Auto Scaling Groups 101](#launch-configurations--auto-scaling-groups-101)                                                    
       * [EC2 Placement groups](#ec2-placement-groups)                                                                                   
    * [Route 53](#route-53)                                                                                                             
       * [DNS 101](#dns-101)                                                                                                             
