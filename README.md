@@ -65,7 +65,7 @@ Table of Contents
       * [IAM Roles for EC2](#iam-roles-for-ec2)                                                                                         
       * [Bootstrap scripts.](#bootstrap-scripts)                                                                                       
       * [EC2 Instance Meta-Data](#ec2-instance-meta-data)                                                                               
-      * [Auto Scaling 101](#auto-scaling-101)                                                                                           
+      * [Launch Configurations & Auto Scaling Groups 101](#auto-scaling-101)                                                                                           
       * [EC2 Placement groups](#ec2-placement-groups)                                                                                   
    * [Route 53](#route-53)                                                                                                             
       * [DNS 101](#dns-101)                                                                                                             
@@ -998,21 +998,15 @@ The following are examples of problems that can cause instance status checks to 
   - curl [http://169.254.169.254/latest/meta-data/](http://169.254.169.254/latest/meta-data/).
   - Instance information is available in Meta-Data. Not in User-Data.
 
-## Auto Scaling 101
+## Launch Configurations & Auto Scaling Groups 101
 
-  - Before you can create Auto scaling group you need to create a launch configuration
-
-  - Launch Configuration – Select AMI, Instance Type , Bootstrap script
-
-  - No actual instances are created just with launch configuration
-
-  - Auto scaling group – Set minimum size, spread it over subnets (AZs)- select all available AZs
-
-  - Run health checks from ELB
-
-  - Configure Auto scaling policy – Based on Alarm take action – trigger a new instance creation when CPU Utilization is greater than 90% for 5 minutes. You can also delete instance based on alarms
-
-  - When Auto scaling group is launched it creates the instances based on definition.
+  - Before you can create Auto scaling group you need to create a launch configuration.
+  - Launch Configuration – Select AMI, Instance Type , Bootstrap script.
+  - No actual instances are created just with launch configuration.
+  - Auto scaling group – Set minimum size, spread it over subnets (AZs)- select all available AZs. Selecting multiple AZs keep you safe in case of failure of one AZ.
+  - Run health checks from ELB.
+  - Configure Auto scaling policy – Based on Alarm take action – trigger a new instance creation when CPU Utilization is greater than 90% for 5 minutes. You can also delete instance based on alarms.
+  - When Auto scaling group is launched it creates the instances based on definition and stops at the time of deletion of Auto scaling group.
 
 ## EC2 Placement groups
 
