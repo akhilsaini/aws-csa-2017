@@ -977,19 +977,16 @@ The following are examples of problems that can cause instance status checks to 
 ## AWS CLI Usage
 
   - Users can login with Access Key ID and Secret Access Key. If anything is compromised, you can regenerate the secret access key.
+  - Also you can delete the user and recreate in case you are keys are compromised.
+  - Try to avoid access ec2-instance with the help of user, instead of that use ec2-instance with role at the time of instance creation.
 
-  - Also you can delete the user and recreate.
+## IAM Roles for EC2, Regions & AWS CLI
 
-## IAM Roles for EC2
-
-  - Avoid using user credentials on servers
-
-  - IAM roles can be assigned/replaced to existing EC2 instances using AWS CLI. Not through the console.
-
+  - Avoid using user credentials on servers.
+  - IAM roles can be assigned/replaced to existing EC2 instances using console.
+  - Try to use the **region** flag with aws s3 commands as otherwise it will not work for each case.
   - A trick is to assign policies to the existing role. This will avoid the need to create new instances.
-
   - Role assigned to instance is stuck to the lifetime of the instance – until you delete the role. Easier to modify existing role by adding / removing policies.
-
   - Roles are universal. Applicable to all regions.
 
 ## Bootstrap scripts.
