@@ -995,9 +995,8 @@ The following are examples of problems that can cause instance status checks to 
 
 ## EC2 Instance Meta-Data
 
-  - curl [http://169.254.169.254/latest/meta-data/](http://169.254.169.254/latest/meta-data/)
-
-  - Instance information is available in Meta-Data. Not in User-Data
+  - curl [http://169.254.169.254/latest/meta-data/](http://169.254.169.254/latest/meta-data/).
+  - Instance information is available in Meta-Data. Not in User-Data.
 
 ## Auto Scaling 101
 
