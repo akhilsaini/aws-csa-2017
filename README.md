@@ -1008,9 +1008,16 @@ The following are examples of problems that can cause instance status checks to 
 
 ## EC2 Placement groups
 
-  - Logical grouping of instances within a single AZ
-
-  - Instances can participate in low latency, 10 GBPs network.
+  - Logical grouping of instances within a single AZ.
+  - Placement groups enables applications to participate in low latency, 10 GBPs network.
+  - PGs are recommended for applications that benefit from low network latency, high network throughput, or both. e.g. casandra as back-end DB.
+  - PG can't span to multiple AZs caz to reduce the network latency.
+  - Name for the PG must be unique within AWS account.
+  - Only certain types of intances can be launched in a PG(Compute Optimized,GPU, Memory Optimized, Strorage Optimized).
+  - Acronym :-> DR CP (Dense Storage[Strorage Optimized D2],RAM[Memory Optimized R4,R3], C Compute Optimized[C4, C3],Graphics / General Purpose[Parallel Processing P2]).
+  - AWS recommend homogenous instances with PG. Homogenous means of the same size and family.
+  - You can't merge PGs.
+  - You can't move existing instance into a PG. Though you can create the AMI from your existing instance, and then launch a new instance from the AMI into a PG.
 
 # Route 53
 
