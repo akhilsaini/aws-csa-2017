@@ -64,24 +64,25 @@ Table of Contents
       * [Bootstrap scripts.](#bootstrap-scripts)
       * [EC2 Instance Meta-Data](#ec2-instance-meta-data)
       * [Launch Configurations & Auto Scaling Groups 101](#launch-configurations--auto-scaling-groups-101)               
-      * [EC2 Placement groups](#ec2-placement-groups)                                                                                   
-   * [Route 53](#route-53)                                                                                                             
-      * [DNS 101](#dns-101)                                                                                                             
-         * [Types of DNS Records -](#types-of-dns-records--)                                                                           
-         * [Hosted Zone](#hosted-zone)                                                                                                 
-      * [Route53 Routing Policies](#route53-routing-policies)                                                                           
-      * [DNS Exam Tips](#dns-exam-tips)                                                                                                 
-   * [Databases on AWS](#databases-on-aws)                                                                                             
-      * [Databases 101](#databases-101)                                                                                                 
-         * [RDBMS](#rdbms)                                                                                                             
-         * [NoSQL DBs](#nosql-dbs)                                                                                                     
-         * [Data Warehousing](#data-warehousing)                                                                                       
-         * [ElastiCache](#elasticache)                                                                                                 
-         * [Database Migration Service](#database-migration-service)                                                                   
-      * [RDS – Back Ups, Multi AZs &amp; Read Replicas](#rds--back-ups-multi-azs--read-replicas)                                       
-         * [Backups](#backups)                                                                                                         
-         * [Snapshots](#snapshots)                                                                                                     
-         * [Encryption](#encryption-1)                                                                                                 
+      * [EC2 Placement groups](#ec2-placement-groups)
+      * [EFS(Elastic File System)](#efselastic-file-system)
+   * [Route 53](#route-53)                 
+      * [DNS 101](#dns-101)
+         * [Types of DNS Records -](#types-of-dns-records--)
+         * [Hosted Zone](#hosted-zone)
+      * [Route53 Routing Policies](#route53-routing-policies)
+      * [DNS Exam Tips](#dns-exam-tips)
+   * [Databases on AWS](#databases-on-aws)
+      * [Databases 101](#databases-101)
+         * [RDBMS](#rdbms)   
+         * [NoSQL DBs](#nosql-dbs)
+         * [Data Warehousing](#data-warehousing)
+         * [ElastiCache](#elasticache)
+         * [Database Migration Service](#database-migration-service)              
+      * [RDS – Back Ups, Multi AZs &amp; Read Replicas](#rds--back-ups-multi-azs--read-replicas)
+         * [Backups](#backups)
+         * [Snapshots](#snapshots)
+         * [Encryption](#encryption-1)
          * [Multi-AZ Deployment](#multi-az-deployment)                                                                                 
          * [Read Replica Databases.](#read-replica-databases)                                                                           
       * [DynamoDB](#dynamodb)                                                                                                           
@@ -1018,6 +1019,31 @@ The following are examples of problems that can cause instance status checks to 
   - AWS recommend homogenous instances with PG. Homogenous means of the same size and family.
   - You can't merge PGs.
   - You can't move existing instance into a PG. Though you can create the AMI from your existing instance, and then launch a new instance from the AMI into a PG.
+
+## EFS(Elastic File system)
+  - Amazon Elastic File system is a file storage service for Amazon EC2 instances.
+  - With EFS storage capacity is elastic, growing and shrinking automatically as you add and remove files. So your application have the storage they need and when they need.
+  - Supports NFSv4 protocol.
+  - Pay for the storage you use(no pre-provisioning required).
+  - Can scale up to petabytes.
+  - Can support thousands of concurrent NFS connections.
+  - Data stored across multiple AZs within a region.
+  - EFS is block based storage.
+  - Read after write consistency.
+  - use cases
+    - File server
+    - centralized repo
+  - You can restrict at user level and file level.
+  - EFS allows multiple ec2-instances to connect to it unlike the EBS.
+  - EC2-instances should share the same security group, or atleast should have the one security group, as the security group of EFS.
+  - Lab
+    - create a EFS
+    - create few(at least 2) instances AZs from EFS. Make sure to have the same security group as in EFS.
+    - Create a ELB and add above created instances.
+    - ssh to both the instances and install apache.
+    - mount EFS to Apache's directory /var/www/html/ for both the server. Make sure to add the NFS rule(2049 port) in Security group.
+    - create index.html file at one server. It should reflect on the other mounted servers as well.
+    - Open the ELB DNS name to verify the index.html's content.
 
 # Route 53
 
