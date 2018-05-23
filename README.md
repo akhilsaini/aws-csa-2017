@@ -1059,24 +1059,24 @@ The following are examples of problems that can cause instance status checks to 
   - Architectures can get extremely complicated, AWS X-ray allows you to debug what's happening.
   - Lambda can do things globally, you can use it to back up S3 buckets to other S3 buckets etc.
 ### **Event Sources** Acronym : SA2 C7 DILK1 
-  - Amazon S3
-  - Amazon DynamoDB
-  - Amazon Kinesis Data Streams
-  - Amazon Simple Notification Service
-  - Amazon Simple Email Service
-  - Amazon Cognito
-  - AWS CloudFormation
-  - Amazon CloudWatch Logs
-  - Amazon CloudWatch Events
-  - AWS CodeCommit
+  - Amazon **S**3
+  - Amazon **D**ynamoDB
+  - Amazon **K**inesis Data Streams
+  - Amazon **S**imple Notification Service
+  - Amazon **S**imple Email Service
+  - Amazon **C**ognito
+  - AWS **C**loudFormation
+  - Amazon **C**loudWatch Logs
+  - Amazon **C**loudWatch Events
+  - AWS **C**odeCommit
   - Scdeduled Events (Powered by Amazon CloudWatch Events)
-  - AWS Config
-  - Amazon Alexa
-  - Amazon Lex
-  - Amazon API Gateway
-  - AWS IoT Button
-  - Amazon CloudFront
-  - Amazon Kinesis Data Firehose
+  - AWS **C**onfig
+  - Amazon **A**lexa
+  - Amazon **L**ex
+  - Amazon **A**PI Gateway
+  - AWS **I**oT Button
+  - Amazon **C**loudFront
+  - Amazon **K**inesis Data Firehose
   - Invoking Lambda on demand.
 ### **Pricing**
   - Based on Number of request
