@@ -1033,7 +1033,7 @@ The following are examples of problems that can cause instance status checks to 
   - You can restrict at user level and file level.
   - EFS allows multiple ec2-instances to connect to it unlike the EBS.
   - EC2-instances should share the same security group, or atleast should have the one security group, as the security group of EFS.
-  - Lab
+  - **Lab**
     - create a EFS
     - create few(at least 2) instances AZs from EFS. Make sure to have the same security group as in EFS.
     - Create a ELB and add above created instances.
@@ -1041,7 +1041,7 @@ The following are examples of problems that can cause instance status checks to 
     - mount EFS to Apache's directory /var/www/html/ for both the server. Make sure to add the NFS rule(2049 port) in Security group.
     - create index.html file at one server. It should reflect on the other mounted servers as well.
     - Open the ELB DNS name to verify the index.html's content.
-  - use cases
+  - **Use Cases**
     - File server.
     - centralized repo.
 
