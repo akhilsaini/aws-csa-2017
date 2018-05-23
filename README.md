@@ -66,6 +66,7 @@ Table of Contents
       * [Launch Configurations & Auto Scaling Groups 101](#launch-configurations--auto-scaling-groups-101)               
       * [EC2 Placement groups](#ec2-placement-groups)
       * [EFS(Elastic File System)](#efselastic-file-system)
+      * [AWS Lambda](aws-lambda)
    * [Route 53](#route-53)                 
       * [DNS 101](#dns-101)
          * [Types of DNS Records -](#types-of-dns-records--)
@@ -1044,6 +1045,51 @@ The following are examples of problems that can cause instance status checks to 
   - **Use Cases**
     - File server.
     - centralized repo.
+
+## AWS Lambda
+  - Data Center -> IAAS(2006 EC2) -> PAAS(AWS overall - Platform as service Elastic Beanstalk) -> Containers(Dockers) -> Serverless(AWS Lambda)
+  - Event-driven Compute Service where you upload your code.
+  - No need to install OS, patching, scaling and provisioning at all.
+  - Events can be generated via S3,Dynamo DB.
+  - HTTP requests served with the help of API Gateway.
+  - Code invocation would be different for different events. 100 diff request will invoke 100 time the same lambda function. 
+  - It scales out(not up) automatically no need to scaling the code.
+  - Lambda functions are independent, 1 event = 1 function.
+  - Lambda functions can trigger other Lambda functions. 1 event can = x number of functions.
+  - Architectures can get extremely complicated, AWS X-ray allows you to debug what's happening.
+  - Lambda can do things globally, you can use it to back up S3 buckets to other S3 buckets etc.
+### **Event Sources** Acronym : SA2 C7 DILK1 
+  - Amazon S3
+  - Amazon DynamoDB
+  - Amazon Kinesis Data Streams
+  - Amazon Simple Notification Service
+  - Amazon Simple Email Service
+  - Amazon Cognito
+  - AWS CloudFormation
+  - Amazon CloudWatch Logs
+  - Amazon CloudWatch Events
+  - AWS CodeCommit
+  - Scdeduled Events (Powered by Amazon CloudWatch Events)
+  - AWS Config
+  - Amazon Alexa
+  - Amazon Lex
+  - Amazon API Gateway
+  - AWS IoT Button
+  - Amazon CloudFront
+  - Amazon Kinesis Data Firehose
+  - Invoking Lambda on demand.
+### **Pricing**
+  - Based on Number of request
+    - First 1 million request are free. $.20/million request thereafter.
+  - Duration
+    - Duration is calculated from the time your code begins executing utill it returns or otherwise terminates, rounded up to the nearest 100ms.
+    - Price depends on the amount of memory you allocate to your function.
+    - You are charged $.00001667/GB used.
+    - Duration threshold is 5 minutes.
+### **Why Lambda**
+  - No servers.
+  - No Scaling, provision.
+  - Super super super cheap.
 
 # Route 53
 
