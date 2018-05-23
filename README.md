@@ -66,7 +66,7 @@ Table of Contents
       * [Launch Configurations & Auto Scaling Groups 101](#launch-configurations--auto-scaling-groups-101)               
       * [EC2 Placement groups](#ec2-placement-groups)
       * [EFS(Elastic File System)](#efselastic-file-system)
-      * [AWS Lambda](aws-lambda)
+      * [AWS Lambda](#aws-lambda)
    * [Route 53](#route-53)                 
       * [DNS 101](#dns-101)
          * [Types of DNS Records -](#types-of-dns-records--)
