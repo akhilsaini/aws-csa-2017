@@ -1078,15 +1078,15 @@ The following are examples of problems that can cause instance status checks to 
   - Amazon **C**loudFront
   - Amazon **K**inesis Data Firehose
   - Invoking Lambda on demand.
-### **Pricing**
+### Pricing
   - Based on Number of request
-    - First 1 million request are free. $.20/million request thereafter.
+    - First 1 million/month request are free. $.20/million request thereafter.
   - Duration
     - Duration is calculated from the time your code begins executing utill it returns or otherwise terminates, rounded up to the nearest 100ms.
     - Price depends on the amount of memory you allocate to your function.
     - You are charged $.00001667/GB used.
     - Duration threshold is 5 minutes.
-### **Why Lambda**
+### Why Lambda
   - No servers.
   - No Scaling, provision.
   - Super super super cheap.
