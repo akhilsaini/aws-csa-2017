@@ -1092,16 +1092,21 @@ The following are examples of problems that can cause instance status checks to 
   - Super super super cheap.
 
 ## Text to speech lab using S3,IAM,Polly,Lambda,Dynamo DB, API Gateway and SNS
-  - Create to buckets.
+  - Create two buckets.
     - One for website contents.
     - One for mp3 contents.
   - Create SNS topic named new_posts.
-  - Create IAM role from the assets folder's given file. It has json document for all the required services.
+  - Create IAM role from the assets folder's given file. It has json document for all the required services's permission.
   - Create posts table in DD to store the posts created
   - Create 3 lambda(along with API Gateway) for
     - To create new post(uses DD table and SNS topic, we created earlier,as environment variable), triggered by API Gateway.
     - To convert text to Audio(uses DD table and mp3 S3 bucket name,as environment variable), triggered by SNS.
     - Get posts from DD(uses DD table, as environment variable)
+  - Create one API two methods in API Gateway.
+    - One for Get. Add Querystring postId for this method. Change content-type application/json for Body Mapping templates.
+    - One for post.
+  - Create a new stage(dev) for deploying the api.
+  - Put the files in S3 bucket and use bucketpolicy from the assets folder.
 ### Notes
   - You need to enable the CORS on API Gateway if your website is on S3,(Popular exam topic.), because two Domain Names are trying to interact with each other. One Domain Name is of API Gateway and other of S3 website.
 
