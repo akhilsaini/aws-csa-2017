@@ -1114,31 +1114,56 @@ The following are examples of problems that can cause instance status checks to 
 
 ## DNS 101
 
-DNS = Convert Human Friendly domain names into IP addresses.
-
-IP4 (32 bit), IP6 (128 bits) - created to address exhaustion of IP addresses in IP4 space
-
-VPCs are now IP6 compatible.
-
-Top level domains vs second level domains
-
-Domain Registrars - assign domain names under one or more top level domain names.
+- DNS = Convert Human Friendly domain names into IP addresses.
+- IP4 (32 bit), IP6 (128 bits) - created to address exhaustion of IP addresses in IP4 space.
+- IPv4 # of addresses : 4,294,967,296. **4 Billion addresses**
+- IPv6 # of addresses : 340,282,366,920,938,463,374,607,431,768,211,456. **340 undecillion addresses**. undecillion is 10 raise to 36.
+- VPCs are now IP6 compatible.
+- Top level domains(.com,.edu) vs second level(.co.uk) domains.
+- Top level domain(**TLD**) names are controlled by the Internet Assigned Numbers Authority(IANA) in a root zone database which is essentially a database of all available top level domains. You can view the database by visiting : http://www.iana.org/domains/root/db.
+- Domain Registrars - assign domain names under one or more top level domain names. Uniqueness services used are InterNIC and ICANN. WhoIS database is the central database used for this. Popular domain registrars include GoDaddy.com,123-reg.co.uk etc.
 
 ### Types of DNS Records -
 
-1. SOA Record 
+- SOA Record : SOA record stored the information about
+  - The name of the server that supplied the data for the zone.
+  - The administrar of the zone.
+  - The current version of the data file.
+  - The number of seconds a secondary name server should wait before checking for the updates.
+  - The maximum number of seconds that a secondary name server can use data before it must either be refreshed or expire.
+  - The default number of seconds for the time-to-live file on resource records.
+- NS Record(Name Server Record) 
+  - NS records are used by the TLD servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
+  - AWS is now a Domain Registrar as well.
+- A Record - most fundamental type.
+  - "A" in A Record stands for Address.
+  - The A record is used by the computer to translate the name of the domain to the IP address.
+- TTL Record
+  - Always measured in seconds.
+  - The lenght that a DNS record is cached on either the Resolving server or the users own local PC.
+  - The lower theh TTL, the faster changes to DNS records take to propagate throughout the internet.
+  - Lower the TTL in case of DNS migration e.g. from Azure network to AWS. Lower the TTL to 300 seconds or less and then within 2 days(old TTL) migrate the DNS. Otherwise some request would go to previous server and some to new server.
+- CNAME (Canonical Name)
+  - Resolve one domain name to another. Can’t use CNAME for Naked domains.
+  - E.g. You may have a mobile website with the domain name http://m.acloud.guru that is used for when users browse to your domain name on their mobile devices. You may also want the name http://mobile.acloud.guru to resolve to the same address.
+- ALIAS record 
+  - **Only AWS terminology**(not used in general DNS) - Alias Records are used to map resource record sets in your hosted zone to ELBs, Cloud Front Distribution, or S3 buckets that are configured as websites. E.g. you can have DNS names which point to ELB domain names -w/o the need for changing IP when ELB Ip changes.
+  - Alias records work like a CNAME record in that you can map one DNS name (www.example.com) to another 'target' DNS name (elb1234.elb.amazonaws.com).
+  - key Diff : A CNAME can't be used for naked domain(w/o the www) names (zone apex record). You can't have a CNAME for http://acloud.guru, it must be either an A record or an Alias.
+  - Route 53 automatically recognizes changes in the record sets. Most common usage- map naked domain name (zone apex) to ELB names.
+  - Always use Alias(in 9 out of 10 cases.) v/s CNAME as Alias has no charges. Answering CNAME queries has a cost on Route53.
+- AAAA Record – Ipv6
 
-2. NS Record - AWS is now a Domain Registrar as well. 
+TTL - Cache the DNS record for TTL seconds. Before DNS migration, shorten the TTLs - so no more responses are cached.
 
-3. A Record - fundamental 
-
-4. CNAME - Canonical - resolve one domain name to another. Can’t use CNAME for Naked domains.
-
-5. ALIAS record - only on AWS - are used to map resource record sets in your hosted zone to ELBs, Cloud Front Distribution, or S3 buckets that are configured as websites. E.g. you can have DNS names which point to ELB domain names -w/o the need for changing IP when ELB Ip changes.  Route 53 automatically recognizes changes in the record sets. Most common usage- map naked domain name (zone apex) to ELB names. Always use Alias v/s CNAME as Alias has no charges. Answering CNAME queries has a cost on Route53
-
-6. AAAA Record – Ipv6
-
-TTL - Cache the DNS record for TTL seconds. Before DNS migration, shorten the TTLs - so no more responses are cached. 
+### Process to get registered the domain name and activate
+- Normal Process
+  - Go to the Domain Name registrars like Godaddy and register a domain name.
+  - Go to route53 and create a zone.
+  - Get NS records from route53.
+  - Update Godaddy with NS records from the above step.
+- AWS Process
+  - It'll automatically update the domain registrar with NS records as AWS can act as Domain registrar as well.
 
 ### Hosted Zone
 
