@@ -1058,7 +1058,7 @@ The following are examples of problems that can cause instance status checks to 
   - Lambda functions can trigger other Lambda functions. 1 event can = x number of functions.
   - Architectures can get extremely complicated, AWS X-ray allows you to debug what's happening.
   - Lambda can do things globally, you can use it to back up S3 buckets to other S3 buckets etc.
-### Event Sources Acronym : **DILK1 SA2 C7**
+### Event Sources Acronym : **DILK1 AS2 C7**
   - Amazon **S**3
   - Amazon **D**ynamoDB
   - Amazon **K**inesis Data Streams
