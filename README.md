@@ -1187,13 +1187,13 @@ TTL - Cache the DNS record for TTL seconds. Before DNS migration, shorten the T
 Most of the questions are scenario based.
 
 1. Simple - Default - when a single resource performs function for your domain - only one webserver serves content.
-  - There can be many webservers balanced by ELB.
-  - Task
-    - Insert A record(by clicking create record set) with naked domain name and check the Alias radio button.
-    - Alias Target : ELB endpoint.
-    - Routing policy : Simple.
-    - Evaluate Health Target : No.
-  - Only default region is serving the content.
+  1. There can be many webservers balanced by ELB.
+  2. Task
+    1. Insert A record(by clicking create record set) with naked domain name and check the Alias radio button.
+    2. Alias Target : ELB endpoint.
+    3. Routing policy : Simple.
+    4. Evaluate Health Target : No.
+  3. Only default region is serving the content.
 2. Weighted – send x% of traffic to site A and remainder (100 – x) % of it to site B. e.g. 10% near region and 90% to far region.
   - Need not be two different regions. 
   - Can be even two different ELBs in the same region.
