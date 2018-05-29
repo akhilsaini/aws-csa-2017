@@ -1112,6 +1112,9 @@ The following are examples of problems that can cause instance status checks to 
 
 # Route 53
 
+- Route 53 is a global service, regions doesn't matter.
+- AWS Takes Global view of DNS – not local / ISP view.
+
 ## DNS 101
 
 - DNS = Convert Human Friendly domain names into IP addresses.
@@ -1125,7 +1128,7 @@ The following are examples of problems that can cause instance status checks to 
 
 ### Types of DNS Records -
 
-- SOA Record : SOA record stored the information about
+- SOA(Start of Authority) Record : SOA record stored the information about
   - The name of the server that supplied the data for the zone.
   - The administrar of the zone.
   - The current version of the data file.
@@ -1138,6 +1141,7 @@ The following are examples of problems that can cause instance status checks to 
 - A Record - most fundamental type.
   - "A" in A Record stands for Address.
   - The A record is used by the computer to translate the name of the domain to the IP address.
+  - Naked domain name(w/o www or any subdomain. As www is also subdomain. e.g. google.com) must be an A record not the CNAME.
 - TTL Record
   - Always measured in seconds.
   - The lenght that a DNS record is cached on either the Resolving server or the users own local PC.
@@ -1167,24 +1171,38 @@ TTL - Cache the DNS record for TTL seconds. Before DNS migration, shorten the T
 
 ### Hosted Zone
 
-Collection of resource record sets. NS, SOA, CNAME, Alias etc. types of records for a particular domain.
+- Collection of resource record sets. NS, SOA, CNAME, Alias etc. types of records for a particular domain. e.g. [https://www.tcpiputils.com/dns-lookup/google.com/ALL](https://www.tcpiputils.com/dns-lookup/google.com/ALL)
+- When you register a domain name with AWS it automatically creates the hosted zone for your domain.
+- Created hosted zone will have NS and SOA records by default which are needed for any newly registered domain name.
 
-e.g. [https://www.tcpiputils.com/dns-lookup/google.com/ALL](https://www.tcpiputils.com/dns-lookup/google.com/ALL)
+### Task for Website hosting with EC2-instances.
+- Create 2 EC2 instances.
+- Create 1 ELB(classic). Add both instances in this ELB. Perform above both operation in nearest region.
+- Go to farthest region and Launch a EC2-instance.
+- Create 1 ELB in latest region and add the above created EC2-instance.
+- Rest thing will change according to routing policy.
 
 ## Route53 Routing Policies
 
 Most of the questions are scenario based.
 
-1. Simple - Default - when a single resource performs function for your domain - only one webserver serves content
-
-2. Weighted – send x% of traffic to site A and remainder (100 – x) % of it to site B. Need not be two different regions. Can be even two different ELBs.  This split is over length of day not based on number of individual subsequent requests.
-
-Weights – a number between 0 and 255. Route53 calculates auto %age
-
-AWS Takes Global view of DNS – not local / ISP view.
-
-A/B testing is perfect use case for Weighted Routing policy
-
+1. Simple - Default - when a single resource performs function for your domain - only one webserver serves content.
+  - There can be many webservers balanced by ELB.
+  - Task
+    - Insert A record(by clicking create record set) with naked domain name and check the Alias radio button.
+    - Alias Target : ELB endpoint.
+    - Routing policy : Simple.
+    - Evaluate Health Target : No.
+  - Only default region is serving the content.
+2. Weighted – send x% of traffic to site A and remainder (100 – x) % of it to site B. e.g. 10% near region and 90% to far region.
+  - Need not be two different regions. 
+  - Can be even two different ELBs in the same region.
+  - This load split is over length of day not based on number of individual subsequent requests. It'll send x% traffic to site A through out the day not based on number of requests and same holds true for site B as well.
+  - Weights – a number between 0 and 255. Route53 calculates auto %age after summing up the weights of all the record set.
+  - Use Case : A/B testing is perfect use case for Weighted Routing policy.
+  - Task
+    - Create A record (as Simple routing policy) but with weighted routing policy with 70 weight. Use one ELB in near region.
+    - Create A record with weighted policy with 30 weight. Use other ELB in far region.   
 3. Latency – allows you to route traffic based on lowest network latency for your end user. To the region which gives fastest response time
 
 Create record set for EC2 or ELB resource in each region that hosts website. When R53 receives a query it will then determine response based on lowest latency
