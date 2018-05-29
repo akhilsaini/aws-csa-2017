@@ -1195,14 +1195,14 @@ Most of the questions are scenario based.
         4. Evaluate Health Target : No.
     3. Only default region is serving the content.
 2. Weighted – send x% of traffic to site A and remainder (100 – x) % of it to site B. e.g. 10% near region and 90% to far region.
-  - Need not be two different regions. 
-  - Can be even two different ELBs in the same region.
-  - This load split is over length of day not based on number of individual subsequent requests. It'll send x% traffic to site A through out the day not based on number of requests and same holds true for site B as well.
-  - Weights – a number between 0 and 255. Route53 calculates auto %age after summing up the weights of all the record set.
-  - Use Case : A/B testing is perfect use case for Weighted Routing policy.
-  - Task
-    - Create A record (as Simple routing policy) but with weighted routing policy with 70 weight. Use one ELB in near region.
-    - Create A record with weighted policy with 30 weight. Use other ELB in far region.   
+    1. Need not be two different regions. 
+    2. Can be even two different ELBs in the same region.
+    3. This load split is over length of day not based on number of individual subsequent requests. It'll send x% traffic to site A through out the day not based on number of requests and same holds true for site B as well.
+    4. Weights – a number between 0 and 255. Route53 calculates auto %age after summing up the weights of all the record set.
+    5. Use Case : A/B testing is perfect use case for Weighted Routing policy.
+    6. Task
+        1. Create A record (as Simple routing policy) but with weighted routing policy with 70 weight. Use one ELB in near region.
+        2. Create A record with weighted policy with 30 weight. Use other ELB in far region.   
 3. Latency – allows you to route traffic based on lowest network latency for your end user. To the region which gives fastest response time
 
 Create record set for EC2 or ELB resource in each region that hosts website. When R53 receives a query it will then determine response based on lowest latency
