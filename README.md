@@ -1111,7 +1111,7 @@ The following are examples of problems that can cause instance status checks to 
   - You need to enable the CORS on API Gateway if your website is on S3,(Popular exam topic.), because two Domain Names are trying to interact with each other. One Domain Name is of API Gateway and other of S3 website.
 
 # Route 53                                               
-###### [Go to Contents Index](#table-of-contents)
+###### <div style="text-align: right"> [Go to Contents Index](#table-of-contents) </div>
 
 - Route 53 is a global service, regions doesn't matter.
 - AWS Takes Global view of DNS – not local / ISP view.
