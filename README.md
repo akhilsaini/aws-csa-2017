@@ -1203,33 +1203,41 @@ Most of the questions are scenario based.
     6. Task
         1. Create A record (as Simple routing policy) but with weighted routing policy with 70 weight. Use one ELB in near region.
         2. Create A record with weighted policy with 30 weight. Use other ELB in far region.   
-3. Latency – allows you to route traffic based on lowest network latency for your end user. To the region which gives fastest response time
-
-Create record set for EC2 or ELB resource in each region that hosts website. When R53 receives a query it will then determine response based on lowest latency
+3. **Latency** – allows you to route traffic based on lowest network latency for your end user. To the region which gives fastest response time.
+    1. Create **latency record set** for EC2 or ELB resource in **each region** that hosts website. When R53 receives a query it will then determine response based on lowest latency. e.g. South African user will be redirected to London(EU-WEST-2) region(having 54ms response time) instead of Sydney(AP-SOUTHEAST-2) region(having 300ms response time).
+    2. Task
+        1. Delete previous 2 A records(from previous lab). i.e. Keep it as it was initially.
+        2. Create A record set(name as naked domain name) with Alias selected and Alias Target of London region ELB. Routing Policy : Latency,Region : eu-west-2,Put set id and create.
+        3. Create A record set(name as naked domain name) with Alias selected and Alias Target of Sydney region ELB. Routing Policy : Latency,Region : au-souteast-2,Put set id and create.
+    3. Tools used for Geo-location proxy : VyprVPN
 
 How will the users get the best experience?  – evaluated dynamically by R3.
 
-4. Failover – When you want to create an active /passive setup. DR site. R53 monitors health of site. If active fails then R53 routes traffic to passive site.   Here you designate a primary and secondary endpoint for your hosted zone record.
+4. **Failover** – When you want to create an active /passive setup. DR site. R53 monitors health of site. If active fails then R53 routes traffic to passive site.   Here you designate a primary and secondary endpoint for your hosted zone record.
+    1. Create 2 healthcheck in R53 using 1 ELB and our production website address(hellocloudgurus.com in this case.)
+    2. Task
+        1. Delete previous 2 A records(from previous lab). i.e. Keep it as it was initially.
+        2. Create a record set with Name as blank(naked domain), Type : A - IPv4, Alias : Yes, Alias Target : LondonELB, Routing Policy : Failover, Failover record type : Primary, Evaluate Target Health : Yes, Health check to Associate : production website will give error so use ELB and click create.
+        3. Create second record set, Alias Target : Sydney ELB, Failover record type : secondary. Rest things are same as above.
 
-5. Geo-location – Choose where to route traffic based on geographic location of users.
+5. **Geo-location** – Choose where to route traffic based on geographic location of users.
+    1. Task
+        1. Delete previous 2 A records(from previous lab). i.e. Keep it as it was initially.
+        2. Create Naked record set, Alias : Yes, Alias Record set : London ELB. Routing policy : Geolocation, Location : Europe, Both health check : No and click create.
+        3. Create another naked record set. Location : Default. Rest things are same as above and click create.
 
 Different from Latency based as the routing is hardwired irrespective of latency.
 
 ## DNS Exam Tips
 
   - ELBs cost money – ensure to delete them when not using.
-
-  - ELBs always have DNS name – no public IP Addresses. Trick question might induce you into believing IP4 address for ELB
-
-  - Remember difference between Alias and CNAME
-
+  - ELBs always have DNS name – no public IP Addresses. Trick question might induce you into believing IP4 address for ELB.
+  - Remember difference between Alias and CNAME.
   - Given a choice between Alias Record vs CNAME – always choose Alias. Alias records are free and can connect to AWS resources.
-
-  - R53 supports zone apex records
-
+  - R53 supports zone apex records.
   - With Route 53, there is a default limit of 50 domain names. However, this limit can be increased by contacting AWS support.
 
-Naked domain – which doesn’t have the www in front of the domain e.g. acloud.guru. [www.acloud.guru](http://www.acloud.guru) isn’t
+**Naked domain** – which doesn’t have the www in front of the domain e.g. acloud.guru. [www.acloud.guru](http://www.acloud.guru) isn’t
 
 # Databases on AWS
 
