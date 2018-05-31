@@ -1248,45 +1248,39 @@ Different from Latency based as the routing is hardwired irrespective of latency
 
 ## Databases 101
 
-### RDBMS
+### RDBMS/RDS - OLTP
 
 RDBMS Types
 
-  - MS-SQL Server
-
-  - Oracle
-
-  - MySQL
-
-  - PostgreSQL
-
-  - Aurora
-
+  - MS-SQL Server.
+  - Oracle.
+  - MySQL.
+  - PostgreSQL.
+  - Aurora.
   - MariaDB
 
 ### NoSQL DBs
 
 Document Oriented
 
-  - CouchDB,
-
-  - MongoDB
-
-  - Dynamo DB
+  - CouchDB.
+  - MongoDB.
+  - Dynamo DB(Lots of question on this and RDS.)
 
 Collection = Table, Document = Row, Keys-Value Pairs = Fields
 
 ### Data Warehousing
 
 OLTP (pulls out specific / narrow record set) vs OLAP – (pulls in large number of records). It used different architecture and infrastructure layer.  Differ in terms of queries run on top of data. OLAP is more about aggregation.
+OLTP example : Online shopping cart. RDS databases
+OLAP example : Net profit for EMEA and Pacific for the Digital Radio Product. Redshift datawarehouse
 
 ### ElastiCache
 
 In memory cache in cloud.
 
-  - Memcached
-
-  - Redis
+  - Memcached.
+  - Redis.
 
 Exam – Improve database performance – e.g. top 10 deals of the day.
 
@@ -1302,12 +1296,9 @@ OLTP systems.
 
 ### Backups
 
-  - Automated Backups – full daily snapshot & will also store transaction logs.  
-
-  - Enabled by default. Stored in S3. Free backup storage in S3 upto the RDS Instance size.  
-
+  - Automated Backups – full daily snapshot & will also store transaction logs.
+  - Enabled by default. Stored in S3. Free backup storage in S3 upto the RDS Instance size.
   - You can define backup window. Choose wisely.
-
   - Backups are deleted when the RDS Instance is deleted.
 
 ### Snapshots
