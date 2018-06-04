@@ -1245,6 +1245,7 @@ Different from Latency based as the routing is hardwired irrespective of latency
 **Naked domain** – which doesn’t have the www in front of the domain e.g. acloud.guru. [www.acloud.guru](http://www.acloud.guru) isn’t
 
 # Databases on AWS
+###### [Go to Contents Index](#table-of-contents)
 
 ## Databases 101
 
@@ -1284,7 +1285,7 @@ In memory cache in cloud.
 
 Exam – Improve database performance – e.g. top 10 deals of the day.
 
-### Database Migration Service
+### Database Migration Service(DMS)
 
 Migrate production database to AWS. AWS manages all complexities of migration process. Source database remains fully operational. Both homogenous (Oracle to Oracle) as well as heterogeneous migrations are supported (Oracle to Aurora or Microsoft SQL). Can also be used for continuous data replication with high availability
 
@@ -1296,7 +1297,11 @@ OLTP systems.
 
 ### Backups
 
-  - Automated Backups – full daily snapshot & will also store transaction logs.
+  - Automated Backups – Automated backups allow you to recover your database to any point in time within a "retention period". The retention period can be between **1** and **35** days. Automated backup will take a full daily snapshot and will also store the transaction logs throughout the day. When you do a recovery, AWS will first choose the most recent daily backup, and then apply the transaction logs relevant to that day. This allows you to do a point in time recovery down to a second, within the retention period. i.e.Full daily snapshot & will also store transaction logs within set retention period of **1** to **35** days.
+  - Automated backups are enabled by default.
+  - The backup data is stored in S3 and you get a free space equal to the size of your database. So if you have an RDS instance of 10GB, you'll get 10GB worth of storage on S3.
+  - Backups are within a defined window.
+  - During the backup window, storage I/O may be suspended while your data is being backed up and you may experience elevated latency.
   - Enabled by default. Stored in S3. Free backup storage in S3 upto the RDS Instance size.
   - You can define backup window. Choose wisely.
   - Backups are deleted when the RDS Instance is deleted.
@@ -1304,57 +1309,47 @@ OLTP systems.
 ### Snapshots
 
   - Done manually. They are stored even after you delete the instance.
-
   - You can copy snapshots across regions.
-
   - You can publish the snapshot to make it publically available.
-
   - Restoring Backups/ Snapshots – The restored version will be a new RDS instance with new end point.
-
   - You can check the instance size to restore.
-
   - You cannot restore to existing instance
 
 ### Encryption
 
-  - Encryption at rest is supported for MySQL, SQL Server, Oracle and PostgreSQL & MariaDB.
-
+  - Encryption at rest is supported for MySQL, SQL Server, Oracle, PostgreSQL, MariaDB & Aurora.
   - Managed by AWS KMS.
-
-  - Cannot encrypt an already present instance. To encrypt, create new instance with encryption enabled and then migrate your data to it.
+  - Once your RDS intance is encrypted, the data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
+  - Cannot encrypt an already present instance. To use Amazon RDS encryption for an existing database, you must first create a snapshot, make a copy of that snapshot and encrypt that copy.
 
 ### Multi-AZ Deployment
 
-  - A standby copy is created in another AZ. AWS handles replication and auto-failover
-
+  - A standby copy is created in another AZ. AWS handles replication and auto-failover.
   - AWS can automatically failover RDS instance to another instance.
-
   - In case of failover, No need to change connection string.
-
   - This can be used for DR purpose only. This option has to be selected at instance creation time. This option is not useful for improving performance / scaling.
+  - For performace you'll be needing read replicas which are not part of the Multi-AZs.
+  - You always deal with the DNS endpoints,not IP address, in case of RDS.
+  - Databased Available for Multi-AZs.
+    - SQL Server.
+    - Oracle DB.
+    - Mysql Server.
+    - PostgreSQL.
+    - MariaDB.
+    - Aurora DB(Its AWS's specific product and by default support Multi AZs).
 
 ### Read Replica Databases.
 
-  - Read-replica – async data transfer to another RDS instance. You can actually read from these instances, unlike Multi-AZ deployments. You can also have read replicas of read-replicas up to 5 copies. (Watch out as async causes latency)-
-
+  - Read-replica – async data transfer to another RDS instance. You can actually read from these instances, unlike Multi-AZ deployments. You can also have read replicas of read-replicas up to 5 copies. (Watch out as async causes latency).
   - Read-replicas can be used for Dev/Test environments, run certain workloads only against them and not against direct production deployment – Intensive workloads.
-
-  - *MySQL , MariaDB, PostgreSQL only for read-replicas , no Oracle & SQL Server*
-
+  - *MySQL , MariaDB, PostgreSQL only for read-replicas , no Oracle & SQL Server*.
   - You cannot have read-replicas that have multi-AZ. However, you can create read replicas of Multi AZ source databases.
-
   - Read replicas can be of a different size than source DB.
-
-  - Each read-replica will have its own DNS end point
-
-  - Automatic backups must be turned on in order to deploy a read replica
-
+  - Each read-replica will have its own DNS end point.
+  - Automatic backups must be turned on in order to deploy a read replica.
   - Read Replicas can be promoted to be their own databases. This breaks replication. E.g. Dev/Test can be connected to the replica by first promoting it as DB itself.
-
   - Read Replicas can be done in a second region for MySQL and MariaDB – no PostgreSQL.
-
-  - Application re-architecture is required to make use of Read replicas
-
+  - Application re-architecture is required to make use of Read replicas.
   - Read replicas are not used for DR. they are used for performance scaling only.
 
 ## DynamoDB
