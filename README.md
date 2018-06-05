@@ -1295,25 +1295,23 @@ Migrate production database to AWS. AWS manages all complexities of migration pr
 
 OLTP systems.
 
-### Backups
+### Backups : 2 types of Backup
 
-  - Automated Backups – Automated backups allow you to recover your database to any point in time within a "retention period". The retention period can be between **1** and **35** days. Automated backup will take a full daily snapshot and will also store the transaction logs throughout the day. When you do a recovery, AWS will first choose the most recent daily backup, and then apply the transaction logs relevant to that day. This allows you to do a point in time recovery down to a second, within the retention period. i.e.Full daily snapshot & will also store transaction logs within set retention period of **1** to **35** days.
-  - Automated backups are enabled by default.
-  - The backup data is stored in S3 and you get a free space equal to the size of your database. So if you have an RDS instance of 10GB, you'll get 10GB worth of storage on S3.
-  - Backups are within a defined window.
-  - During the backup window, storage I/O may be suspended while your data is being backed up and you may experience elevated latency.
-  - Enabled by default. Stored in S3. Free backup storage in S3 upto the RDS Instance size.
-  - You can define backup window. Choose wisely.
-  - Backups are deleted when the RDS Instance is deleted.
-
-### Snapshots
-
-  - Done manually. They are stored even after you delete the instance.
-  - You can copy snapshots across regions.
-  - You can publish the snapshot to make it publically available.
-  - Restoring Backups/ Snapshots – The restored version will be a new RDS instance with new end point.
-  - You can check the instance size to restore.
-  - You cannot restore to existing instance
+  - **Automated Backups** – Automated backups allow you to recover your database to any point in time within a "retention period". The retention period can be between **1** and **35** days. Automated backup will take a full daily snapshot and will also store the transaction logs throughout the day. When you do a recovery, AWS will first choose the most recent daily backup, and then apply the transaction logs relevant to that day. This allows you to do a point in time recovery down to a second, within the retention period. i.e.Full daily snapshot & will also store transaction logs within set retention period of **1** to **35** days.
+    - Automated backups are enabled by default.
+    - The backup data is stored in S3 and you get a free space equal to the size of your database. So if you have an RDS instance of 10GB, you'll get 10GB worth of storage on S3.
+    - Backups are within a defined window.
+    - During the backup window, storage I/O may be suspended while your data is being backed up and you may experience elevated latency.
+    - Enabled by default. Stored in S3. Free backup storage in S3 upto the RDS Instance size.
+    - You can define backup window. Choose wisely.
+    - Backups are deleted when the RDS Instance is deleted.
+  - **Snapshots**
+    - Done manually. They are stored even after you delete the instance.
+    - You can copy snapshots across regions.
+    - You can publish the snapshot to make it publically available.
+    - Restoring Backups/ Snapshots – The restored version will be a new RDS instance with new end point.
+    - You can check the instance size to restore.
+    - You cannot restore to existing instance
 
 ### Encryption
 
