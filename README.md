@@ -1339,16 +1339,25 @@ OLTP systems.
 ### Read Replica Databases.
 
   - Read-replica – async data transfer to another RDS instance. You can actually read from these instances, unlike Multi-AZ deployments. You can also have read replicas of read-replicas up to 5 copies. (Watch out as async causes latency).
+  - You must have *automatic backup turned on* in order to deploy a read replica.
+  - You can have upto 5 read replica copies of any database.
+  - Each read replica will have it's own endpoint.
   - Read-replicas can be used for Dev/Test environments, run certain workloads only against them and not against direct production deployment – Intensive workloads.
-  - *MySQL , MariaDB, PostgreSQL only for read-replicas , no Oracle & SQL Server*.
-  - You cannot have read-replicas that have multi-AZ. However, you can create read replicas of Multi AZ source databases.
+  - *MySQL , MariaDB, PostgreSQL and Aurora(By default) only for read-replicas , no Oracle & SQL Server*.
+  - You can have read-replicas that have multi-AZ(Added in Jan 2018). 
+  - However, you can create read replicas of Multi AZ source databases.
   - Read replicas can be of a different size than source DB.
   - Each read-replica will have its own DNS end point.
   - Automatic backups must be turned on in order to deploy a read replica.
   - Read Replicas can be promoted to be their own databases. This breaks replication. E.g. Dev/Test can be connected to the replica by first promoting it as DB itself.
-  - Read Replicas can be done in a second region for MySQL and MariaDB – no PostgreSQL.
+  - Read Replicas can be done in a second region for MySQL and MariaDB(not sure about PostgreSQL).
   - Application re-architecture is required to make use of Read replicas.
   - Read replicas are not used for DR. they are used for performance scaling only.
+  - Databased Available for Multi-AZs.
+    - Mysql Server.
+    - PostgreSQL.
+    - MariaDB.
+    - Aurora DB(Its AWS's specific product and by default support Multi AZs). 
 
 ## DynamoDB
 
