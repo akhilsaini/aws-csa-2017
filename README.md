@@ -1403,45 +1403,48 @@ Select type based on application needs
 
 ## Redshift
 
-Petabyte scale DW solution in cloud.  Used for OLAP – sum of various columns and joining the data.
+Amazon Redshift is a fast and powerful, fully managed, peta-byte scale data warehouse service in the cloud. Customers can start small for just $0.25/hour with no commitment or upfront costs and scale to a petabyte or more for $1000/terabyte per year, less than a tenth of most other data warehousing solutions.
+Petabyte scale DW solution in cloud.  Used for OLAP(Online Analytics Processing) – sum of various columns and joining the data.
+Data warehousing databases use different type of architecture both from a database perspective and infrastructure layer.
 
 ### Configurations
 
-  - Single Node – 160 GB. Used by Small and Medium Size businesses.
-
-  - Multi-Node – Leader Node (handles all incoming connections & receives queries) & compute Node (store data and perform queries and computations – up to 128 Compute Nodes)
+  - Single Node
+    - 160 GB. Used by Small and Medium Size businesses.
+  - Multi-Node
+    - Leader Node (handles all incoming connections & receives queries)
+    - compute Node (store data and perform queries and computations – up to 128 Compute Nodes)
 
 ### Performance
 
   - Redshift is 10 times faster than usual OLAP systems.
+  - It uses **Columnar Data Storage**. Instead of storing data as a series of rows, Amazon RedShift organizes the data by column. Unlike row-based systems, which are ideal for transaction processing, column based systems are ideal for data warehousing and analytics, where queries often involve aggregates performed over large data sets. Since only the columns involved in the queries are processed and Columnar data is stored sequentially on storage media, column based systems require far fewer I/Os, greatly improving performance.
+  - **Advanced Compression** (easier to do it via Columns instead of via Rows – which have different data types). Columns have similar type of data. Doesn’t use indexes and views – hence less storage required. When loading data into an empty table, Amazon Redshift automatically samples your data and selects the most appropriate compression scheme.
+  - **Massive Parallel Processing (MPP)** : Allows for MPP. Amazon Redshift automatically distributes data and query load across all nodes. Amazon Redshift makes it easy to add nodes to your data warehouse and enables you to maintain fast query performance as your data warehouse grows.
 
-  - It uses Columnar Data Store.  Columnar data is stored sequentially on storage system. Hence low I/O required – improving performance.
+### Pricing : Based on 3 things.
 
-  - Advanced Compression (easier to do it via Columns instead of via Rows – which have different data types). Columns have similar type of data. Doesn’t use indexes and views – hence less storage required.
-
-  - Based on data, appropriate data compression scheme is used.
-
-  - Allows for massive parallel processing
-
-### Pricing  
-
-  - Based on Compute Node hours (compute node only – no leader node).
-
-  - Backup and Data Transfer (only within VPC)
+  - Based on **Compute Node hours** : Total number of hours you run across all your compute nodes for the billing period. You are billed for 1 Unit/Node/Hour, so a 3-Node data warehouse cluster running persistently for an entire month would incur 2,160 instance hours. You will not be charged for leader node hours; Only compute nodes will incur changes.s (compute node only – no leader node).
+  - Based on **Backup**
+  - Based on **Data Transfer** (only within VPC, not outside it).
 
 ### Security
 
-  - Transit encrypted via SSL,
-
+  - Transit encrypted via SSL.
   - At rest using AES-256 encryption
-
-  - Can use your own HSM or default AWSK Key management.
+  - By default Redshift takes care of Key Management
+    - You can use your own HSM.
+    - You can use your default AWS Key management.
 
 ### Availability
 
-Not Multi-AZs. Can restore snapshots
+  - Not exactly designed for Multi-AZs.
+  - Not Multi-AZs. 
+  - Currently only available in 1 AZ.
+  - Can restore snapshots to new AZs in the event of an outage.  
 
-Exam Tips – Database warehousing service, cheap, faster. Best seller AWS Service. Speed achieved due to columnar storage. And Data stored sequentially on disk – hence faster.
+**Exam Tips** – Database warehousing service, cheap, faster, popular. Best seller AWS Service. Speed achieved due to columnar storage. And Data stored sequentially on disk – hence faster.
+
 
 ## ElastiCache
 
