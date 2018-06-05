@@ -1361,44 +1361,44 @@ OLTP systems.
 
 ## DynamoDB
 
-  - Fast and flexible NoSQL database
-
+  - Fast and flexible NoSQL database.
   - Consistent, single digit millisecond latency.
-
   - Fully managed DB – supports both document based & Key-value data models.
-
   - Great fit for mobile, IoT, web, gaming etc. applications.
-
   - Stored on SSDs
-
-  - Stored on 3 geographically distinct DCs (not AZs). Built in redundancy
-
+  - Stored on 3 geographically distinct DCs (not AZs). Built in redundancy.
   - Consistency
 
-1. Eventual consistent reads - Consistency reached up to 1 second (default)
+1. Eventual consistent reads - Consistency across all copies of data is usually reached within 1 second (default). Repeating a read after short time should return the updated data. Best for Read Performance.
 
-2. Strongly Consistent reads - Consistency reached after writes to all copies are completed. <1 second
+2. Strongly Consistent reads - Returns a result that reflects all writes that received a successful response prior to the read. i.e. Consistency reached after writes to all copies are completed. <1 second. Used if the information is needed immediately after writing o/w Eventual.
 
 Select type based on application needs
 
-  - Pricing – Write Capacity Units and Read Capacity Units ($/hr.). Also Storage cost per month. You provision capacity in units/second. It can scale on the fly. Provisioned capacity.
-
+  - Pricing – Write Capacity Units and Read Capacity Units ($/hr.). Also Storage cost per month. You provision capacity in units/second. It can scale on the fly.
+    - Provisioned throughput capacity
+      - Write throughput $0.0065 per hour for every 10 units.
+      - Read throughput $0.0065 per hour for every 50 units.
+    - Storage costs for $0.25GB/month.
+    - Pricing example : Let's assume that your application needs to perform 1 million writes and 1 million read per day, while storing 3 GB of data.
+      - First you need to calculate how many writes and reads per second you need.
+      - 1 million evenly spread writes per day is equivallent to 1,000,000(writes)/24(hours)/60(minutes)/60(seconds) = 11.6 writes/second.
+      - A Dynamo DB Write capacity unit can handle 1 write per second, so you need 12 Write capacity units for 11.6 ~ 12 writes/second.
+      - Similarly, to handle 1 million strongly consistent reads per day, you need 12 reads capacity units.
+      - With Read capacity units, you are billed in blocks of 50, with write capacity units you are billed in blocks of 10.
+      - To calculate Write Capacity Units = (0.0065/10)x12x24.
+      - To calculate Read Capacity Units = (0.0065/50)x12x24.
   - Dynamo DB – Expensive for Writes. Cheap for Reads. Important point v/s RDS.
-
   - You can dynamically add columns – without the need to update other rows with the column data. As this is no RDBMS.
-
   - Reserved capacity is available for DynamoDB as well.
+  - You can increase/decrease the read/write capacity on the fly w/o any downtime unlike to RDBMS.
 
 ### RDS v/s DynamoDB
 
   - Use DynamoDB for Push button scaling. With RDS – to scale horizontally a new instance has to be created.
-
   - DynamoDB is cheap for reads and expensive for writes.
-
-  - Observe workload characteristics and decide
-
+  - Observe workload characteristics and decide.
   - Use RDS if data requires joins and relationships.
-
   - In RDBMS database structure cannot be dynamically altered. With DynamoDB you can.
 
 ## Redshift
