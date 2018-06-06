@@ -1365,7 +1365,8 @@ OLTP systems.
   - Consistent, single digit millisecond latency.
   - Fully managed DB – supports both document based & Key-value data models.
   - Great fit for mobile, IoT, web, gaming etc. applications.
-  - Stored on SSDs
+  - Stored on SSDs.
+  - On the fly scaling(Push button scaling) i.e. no downtime.
   - Stored on 3 geographically distinct DCs (not AZs). Built in redundancy.
   - Consistency
 
@@ -1469,50 +1470,41 @@ Exam Tips
 
 ## Aurora
 
+  - Amazon Aurora is a Mysql-compatible, relational database engine that combines the speed and availability of high-end commercial databases with the simplicity and cost effictveness of open source databases. 
   - Bespoke Database Engine.
-
   - It is MySQL compatible.
-
-  - However you can’t download and install on your workstation.
+  - However you can’t download and install on your workstation like the Mysql.
 
 ### Performance
 
-5 times better performance than MySQL. At a fraction of cost as compared to Oracle.
+5 times better performance than MySQL. At a one tenth fraction of cost as compared to Oracle while delivering similar performance and availability.
 
 ### Scaling
 
-  - Outset 10 Gb Storage, auto increment of storage
-
-  - No Push button scaling – unlike DynamoDB
+  - Outset 10 Gb Storage, auto increment of storage up to 64TB.
+  - Compute resource can scale up to 32vCPU and 244GB of memory.
+  - No Push button ()scaling() – unlike DynamoDB. Push Button Scaling(No Downtime).
 
 ### Fault Tolerance
 
-  - Maintains 2 copies of your data in at least 3 availability zones. This is for the Data only not for the instances that runs the Database.
+  - Maintains 2 copies of your data in at least 3 availability zones.i.e. 6 copies of data. This is for the Data only not for the instances that runs the Database.
+  - 2 copies lost – no impact on write availability. Highly redundant.
+  - 3 copies lost – no impact on read availability. Highly redundant.
+  - Storage is self-healing. i.e. Continuously scanned for error and repaired automatically.
 
-  - 2 copies lost – no impact on write availability.
+### Replicas : 2 Types
 
-  - 3 copies lost – no impact on read availability.
+  - **MySQL Read Replica** : can be created from the Aurora source DB.(up to 5 of them).i.e. No automatic Failover.
+  - **Aurora Replicas** : up to 15 of them. If leader crashes, the replica with the highest tiers becomes the leader. i.e. Failover occurs automatically. While creating replicas, remember to assign different tier levels.
+  - Cluster Endpoint vs Individual Endpoint.
 
-  - Storage is self-healing.
-
-### Replicas
-
-  - MySQL Read Replica can be created from the Aurora source DB.(up to 5 of them)
-
-  - Aurora Replicas – up to 15 of them. If leader crashes, the replica with the highest tiers becomes the leader. While creating replicas, remember to assign different tier levels.
-
-  - Cluster Endpoint vs Individual Endpoint
-
-No Free Tier usage available. Also available only in select regions. Takes slightly longer to provision
+No Free Tier usage available. Also available only in select regions. Takes slightly longer to provision.
 
 ## Exam Tips
 
-  - Why you can’t connect to DB Server from DMZ. Check the security group – if it is removed or added
-
+  - Why you can’t connect to DB Server from DMZ. Check the security group – if it is removed or added.
   - Have separate groups for EC2 Instance and RDS Instance.
-
-  - Multi-AZ for Disaster Recovery only. Not for performance improvement. For performance improvement use, multiple read-replicas
-
+  - Multi-AZ for Disaster Recovery only. Not for performance improvement. For performance improvement use, multiple read-replicas.
   - Dynamo DB v/s RDS
 
 If you want push button scaling, without any downtown, you will always want to use DynamoDB.
@@ -1520,14 +1512,11 @@ If you want push button scaling, without any downtown, you will always want to u
 With RDS scaling is not so easy, you have to use a bigger instance or add read replicas (manual process).
 
   - If you are using Amazon RDS Provisioned IOPS storage with a MySQL or Oracle database engine, what is the maximum size RDS volume you can have by default? – **6TB**
-
   - What data transfer charge is incurred when replicating data from your primary RDS instance to your secondary RDS instance? - **There is no charge associated with this action**.
-
-  - When you have deployed an RDS database into multiple availability zones, can you use the secondary database as an independent read node? – **No**
-
-  - RDS automatically creates RDS Security Group w/ TCP port # 3306 enabled. 
-
+  - When you have deployed an RDS database into multiple availability zones, can you use the secondary database as an independent read node? – **No**.
+  - RDS automatically creates RDS Security Group w/ TCP port # 3306 enabled.
   - In VPC Security Group, the answer would be YES because you will have manually specify access to port & protocol.
+  - Read RDS FAQs.
 
 # VPC
 
