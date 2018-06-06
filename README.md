@@ -220,7 +220,7 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 
 
 # AWS 10000 Feet Overview
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 ## Amazon History
 
@@ -420,7 +420,7 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
       - SES – send email via AWS
 
 # Identity & Access Management
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 ## IAM 101
 
@@ -482,7 +482,7 @@ Manage AWS resources via
 Using Access Key ID and Secret Access Key – can be used only via accessing programmatically. Akin to username and password used while accessing the console
 
 # AWS Object Storage & CDN – S3, Glacier and CloudFront
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 ## S3 101 (Simple Storage Service)
 
@@ -721,7 +721,7 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 - Static website endpoint Pattern : http://[bucket_name].s3-website-[region_name].amazonaws.com
 
 # EC2 – The Backbone of AWS
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 ## EC2 101
 
@@ -1115,7 +1115,7 @@ The following are examples of problems that can cause instance status checks to 
   - You need to enable the CORS on API Gateway if your website is on S3,(Popular exam topic.), because two Domain Names are trying to interact with each other. One Domain Name is of API Gateway and other of S3 website.
 
 # Route 53                                               
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 - Route 53 is a global service, regions doesn't matter.
 - AWS Takes Global view of DNS – not local / ISP view.
@@ -1245,7 +1245,7 @@ Different from Latency based as the routing is hardwired irrespective of latency
 **Naked domain** – which doesn’t have the www in front of the domain e.g. acloud.guru. [www.acloud.guru](http://www.acloud.guru) isn’t
 
 # Databases on AWS
-###### [Go to Contents Index](#table-of-contents)
+###### [Go to Index](#table-of-contents)
 
 ## Databases 101
 
