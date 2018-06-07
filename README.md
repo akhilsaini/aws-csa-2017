@@ -1522,47 +1522,44 @@ With RDS scaling is not so easy, you have to use a bigger instance or add read r
 
 Important section for all exams☺. You should be able to build out own VPCs from memory.
 
+Defination : Amazon VPC lets you provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets and configuration of route tables and network gateways.
+
+Additionally you can create a Hardware VPN connection between your corporate data center and your VPC and leverage the AWS cloud as an extension of your corporate datacenter.
+
 ## Introduction
 
   - VPC is a logical data center within an AWS Region.
   - Every region in the world has default VPC. It's get setup automatically when you setup your account.
   - Control over network environment, select IP address range, subnets and configure route tables and gateways.
-  -  You can have as many VPCs as you want but there is a soft limit of 5.
+  - You can have as many VPCs as you want(by emailing AWS) but there is a soft limit of 5.
+  - Launch instances into a subnet of your choosing.
+  - Assign custom IP address ranges in each subnet.
+  - Configure route tables between subnets.
+  - Create internet gateway(IGW) and attach it to our VPC.
   - Do not span regions, but can span AZs.
-  - Only one Internet Gateway per VPC.
+  - Only one Internet Gateway(IGW) per VPC.
+  - IGWss are by default highly available, they are spread over all AZs.
+  - Much better security control over your AWS resources.
+  - SG can span AZ. So SG can span multiple Subnets as well. As 1 AZ = 1 Subnet.
   - Availability zone is physical data center while VPC is logical data center.
-
-  - Can create public facing subnet (Web) having internet access and private facing subnet (DB) with no internet access
-
-  - Public Subnet – Web Servers/ Jump Boxes
-
-  - Private Subnet – Applications Servers / Database servers
-
-  - Leverage multiple layers of security – Security groups and Network ACLs to control access to EC2 instances
-
+  - Can create public facing subnet (Web) having internet access and private facing subnet (DB) with no internet access.
+  - Public Subnet – Web Servers/ Jump Boxes.
+  - Private Subnet – Applications Servers / Database servers.
+  - Leverage multiple layers of security – Security groups and Network ACLs to control access to EC2 instances.
   - Create hardware VPN connection between your local DC and AWS.
-
   - AWS gives a maximum of /16 network.
-
-  - Bastion host/ Jump Box in Public subnet
-
+  - Bastion host/ Jump Box in Public subnet.
   - Security groups, Network ACLs, Route Tables can span subnets/AZs.
-
-  - Each subnet is always mapped to an availability zone. 1 subnet = 1 AZ
-
-  - Only one internet gateway per VPC. [Trick question – improve performance by adding Gateway – just not possible]
-
+  - Each subnet is always mapped to an availability zone. 1 subnet = 1 AZ.
+  - Only one internet gateway per VPC. [Trick question – improve performance by adding Gateway – just not possible].
   - Security groups are stateful. Network ACLs are stateless.
 
-By default, how many VPCs am I allowed in each AWS Region? == 5
-
+By default, how many VPCs am I allowed in each AWS Region? == 5.
 Typical Private IP address ranges – not publically routable.
 
-  - 10.0.0.0 - 10.255.255.255 (10/8 prefix)
-
-  - 172.16.0.0 - 172.31.255.255 (172.16/12 prefix)
-
-  - 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+  - 10.0.0.0 - 10.255.255.255 (10/8 prefix).
+  - 172.16.0.0 - 172.31.255.255 (172.16/12 prefix).
+  - 192.168.0.0 - 192.168.255.255 (192.168/16 prefix).
 
 VPC Diagram - Public and Private subnets ![VPC with Public and Private subnets](VPC-Diagram.jpg)
 
@@ -1570,27 +1567,39 @@ To use AWS Stencils download them at the [AWS Simple Icons for Architecture Diag
 
 ## Default v/s Custom VPC
 
-  - When you create an account a default VPC is created for you in each Region.
-
-  - All subnets in default VPC have a route out to the internet
-
-  - Each EC2 instance in default VPC will have a public and private IP address
-
+  - When you create an account a default VPC is created for you in each Region. That's why it's user friendly.
+  - All subnets in default VPC have a route out to the internet. i.e. Internet accessible.
+  - You don't get private subnets in the default VPC.
+  - Each EC2 instance in default VPC will have a public and private IP address.
+  - In a custom VPC, which is having a private subnet, we won't get a public IP address then only private address then.
   - If you delete default VPC, only way to restore it is by contacting Amazon.
+
+### VPC Peering
+
+We can have multiple VPCs, within the same region. We want to isolate one set of resources from another.We might want them to communicate with each other so we can use the VPC peering.
+
+- Allows you to connect one VPC to another via a direct network route using private IP address.
+- Instances behave as if they were on the same private network.
+- You can peer VPCs with other AWS accounts as well as with other VPCs in the same account.
+- Peering is always in star configuration. i.e. 1 Central VPC peers with 4 others.
+- No transitive peering.
 
 ## Custom VPC Info
 
   - Default Security group, network ACL & route table are created for each custom VPC you create.
-
-  - Doesn’t create subnets or internet gateways out of the box.
-
-  - In each VPC you create, 5 IP addresses are reserved by AWS for itself. First 4 and last IP in the CIDR block.
-
-  - You can't change the size of a VPC after you create it. If your VPC is too small to meet your needs, create a new, larger VPC, and then migrate your instances to the new VPC. To do this, create AMIs from your running instances, and then launch replacement instances in your new, larger VPC. You can then terminate your old instances, and delete your smaller VPC. 
-
-  - You can’t attached multiple Internet Gateways to the VPC to boost performance.
-
+  - Doesn’t create subnets or internet gateways out of the box for each custom VPC you create.
+  - In each VPC you create, 5 IP addresses are reserved by AWS for itself. First 4 and last IP in the CIDR block.e.g. for 10.0.0.0/24 CIDR
+    - 10.0.0.0 : Network Address
+    - 10.0.0.1 : Reserved by the AWS for the VPC router.
+    - 10.0.0.2 : Reserved for DNS using Base address(10.0.0.0) + 2 address (10.0.0.2).
+    - 10.0.0.3 : Reserved for future use.
+    - 10.0.0.255 : Network broadbast address. VPC doesn't support broadcast, therefore it reserves this address.
+  - You can't change the size of a VPC after you create it. If your VPC is too small to meet your needs, create a new, larger VPC, and then migrate your instances to the new VPC. To do this, create AMIs from your running instances, and then launch replacement instances in your new, larger VPC. You can then terminate your old instances, and delete your smaller VPC.
+  - You can’t attached multiple Internet Gateways to the VPC to boost performance. As there can be only one Internet Gateway per VPC.
+  - By default the IGW is detached after creation.
+  - Every time we create a new subnet, it's going to be associated by default to our main route table. That's why we don't want our main route table to have access to the internet.
   - When creating VPCs do not modify default route table to add your custom rules. If you modify the default route, it will affect all instances. Create a new route table for customization.
+  - us-east-1a might be completely different for different accounts and like for All the AZs.
 
 ## NAT Instance & NAT Gateway
 
@@ -1611,6 +1620,7 @@ To use AWS Stencils download them at the [AWS Simple Icons for Architecture Diag
   - NAT Gateways scale up to 10GBps. No need to disable source/ destination checks on Gateways.
 
 ## Network ACLs & Security Groups
+
 |Security Group| Network ACL|
 |-------------|-------------| 
 |Operates at the instance level (first layer of defense)| Operates at the subnet level (second layer of defense)|
