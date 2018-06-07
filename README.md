@@ -1608,6 +1608,7 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
 
   - NAT Instance is one EC2 instance. You are responsible for performance management, scale out and security groups. NAT Gateway is a managed service.
   - On NAT instance, *remember to disable source/destination IP check*. This is required to allow private subnet internet connectivity. This is not required on NAT Gateway.
+  - For best practice purpose you should have a NAT-Gateway in each AZ for high availability.
   - Allow both HTTP and HTTPS access on security groups associated with NAT instances. Security groups are always associated with NAT Instances.
   - Both *NAT Instance and NAT Gateways are deployed to public subnet*. Elastic IP has to be added to NAT Instance. NAT Gateway is automatically assigned a public IP.
   - In VPC, update default route table to allow connectivity from Private subnet to NAT Instance and Gateway.
