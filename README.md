@@ -1536,9 +1536,9 @@ Additionally you can create a Hardware VPN connection between your corporate dat
   - Assign custom IP address ranges in each subnet.
   - Configure route tables between subnets.
   - Create internet gateway(IGW) and attach it to our VPC.
-  - Do not span regions, but can span AZs.
+  - VPCs don't span regions, but can span AZs.
   - Only one Internet Gateway(IGW) per VPC.
-  - IGWss are by default highly available, they are spread over all AZs.
+  - IGWs are by default highly available, they are spread over all AZs.
   - Much better security control over your AWS resources.
   - SG can span AZ. So SG can span multiple Subnets as well. As 1 AZ = 1 Subnet.
   - Availability zone is physical data center while VPC is logical data center.
@@ -1552,7 +1552,7 @@ Additionally you can create a Hardware VPN connection between your corporate dat
   - Security groups, Network ACLs, Route Tables can span subnets/AZs.
   - Each subnet is always mapped to an availability zone. 1 subnet = 1 AZ.
   - Only one internet gateway per VPC. [Trick question – improve performance by adding Gateway – just not possible].
-  - Security groups are stateful. Network ACLs are stateless.
+  - Security groups are stateful(No need to define inbound and outbound traffic seperately. Just define the inbound and same states will be used for outbound as well. Network ACLs are stateless(Need to define inbound and outbound traffic seperately).
 
 By default, how many VPCs am I allowed in each AWS Region? == 5.
 Typical Private IP address ranges – not publically routable.
@@ -1636,7 +1636,7 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
 
 ## Custom VPC & ELB
 
-  - To have HA in general or for ELB, ensure that you have at-least 2 public and or private subnets in different availability zones.
+  - To have HA in general or for ELB, ensure that you have at-least 2 public and or private subnets in different availability zones. Most probably public subnets as they will be accessible publically.
 
 ## NAT & Bastion
 
@@ -1652,40 +1652,32 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
   - Create IAM role to allow all logs to flow into CloudWatch.
   - Create log group in CloudWatch and inside that create stream where you can then see all the traffic flow.
 
+## References
+  - https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KMpVAnXhdK34F7NWYF8/route-table-any-concept-of-direction-of-traffic
+  - https://youtu.be/3qln2u1Vr2E (must do for VPC security)
+
 # Application Services
 
 ## SQS – Simple Queue Service
 
   - SQS is a distributed web service that gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
-
   - SQS helps decouple the components of an application so they can run independently.  
-
-  - Messages can be retrieved via SQS API
-
+  - Messages can be retrieved via SQS API.
   - The producer and consumer can run at their own independent throughput.
-
   - The queue acts as a buffer between consumer and producer. Ensures delivery of messages at least once. Ensure your application isn’t affected by processing the same message multiple times.
-
-  - Allows multiple readers and writers. Single queue can be used simultaneously by various applications – helps scale out applications
-
+  - Allows multiple readers and writers. Single queue can be used simultaneously by various applications – helps scale out applications.
   - SQS Message size up to 256KB of text in any format. May consist of 1-10 messages.
-
   - Does not guarantee FIFO messages. If order is important, add sequencing information in each message.
-
   - For SQS, you have to pull messages. It doesn’t push messages – unlike SNS. You are billed at 64KB Chunks
 
-Pricing
+### Pricing
 
   - First 1 million SQS Requests per month are free.
-
   - $0.50 per 1 million SQS requests per month thereafter.
-
   - 64KB chunk = 1 request. So a message of 256KB = 4 requests.
-
   - Each messages has a visibility timeout – 12 hours by default. Visibility timeout period only starts when a worker node has picked up the message for processing. During this interval, the message is invisible to other processor workers.
-
   - SQS can do auto-scaling. If queue grows beyond a threshold, instantiate new web/app servers. Use Auto scaling + SQS to achieve this.
-
+  
 Exam Tip - De-couple ➔ SQS
 
 ## SWS – Simple Workflow Service
