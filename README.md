@@ -1663,12 +1663,19 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
   - SQS is a distributed web service that gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
   - SQS helps decouple the components of an application so they can run independently.  
   - Messages can be retrieved via SQS API.
+  - Messages can be kept in the queue from 1 to 14 days but default is 4 days.
+  - Visibility timeout is the amount of time that the message is invisible in the SQS queue after a reader picks up that message. Provided the job is processed before the visibility timeout expires, the message will then be deleted from the queue. If the job is not processed within that time, the message will become visible again and another reader will process it. This could result in the same message being delivered twice.
+  - Visibility timeout maximu is 12 hours.
+  - Amazon SQS long polling is a way to retrieve messages from your Amazon SQS queues. While the regular short polling returns immediately, even if the message queue being polled is empty, long polling doesn't return a response untill a message arrives in the message queue, or the long poll times out.
   - The producer and consumer can run at their own independent throughput.
   - The queue acts as a buffer between consumer and producer. Ensures delivery of messages at least once. Ensure your application isn’t affected by processing the same message multiple times.
   - Allows multiple readers and writers. Single queue can be used simultaneously by various applications – helps scale out applications.
   - SQS Message size up to 256KB of text in any format. May consist of 1-10 messages.
   - Does not guarantee FIFO messages. If order is important, add sequencing information in each message.
   - For SQS, you have to pull messages. It doesn’t push messages – unlike SNS. You are billed at 64KB Chunks
+  - Types
+    - Standard : Maintains the order but doesn't guarantee.
+    - FIFO : Guarantee and Maintains the order.
 
 ### Pricing
 
@@ -1677,7 +1684,7 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
   - 64KB chunk = 1 request. So a message of 256KB = 4 requests.
   - Each messages has a visibility timeout – 12 hours by default. Visibility timeout period only starts when a worker node has picked up the message for processing. During this interval, the message is invisible to other processor workers.
   - SQS can do auto-scaling. If queue grows beyond a threshold, instantiate new web/app servers. Use Auto scaling + SQS to achieve this.
-  
+
 Exam Tip - De-couple ➔ SQS
 
 ## SWS – Simple Workflow Service
