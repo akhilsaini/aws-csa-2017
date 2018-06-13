@@ -1690,11 +1690,8 @@ Exam Tip - De-couple ➔ SQS
 ## SWS – Simple Workflow Service
 
   - SWS is a web service that makes it easy to coordinate work across distributed application components. Co-ordinate tasks & workflows.
-
   - Amazon uses SWS to process orders on its website.
-
   - No EC2 components involved.
-
   - It can also involve human actors.
 
 Trick Question – when to use SQS or SWS
@@ -1708,11 +1705,9 @@ Trick Question – when to use SQS or SWS
 
 SWS Actors
 
-1. WF Starters – e-commerce application
-
+1. WF Starters – e-commerce application.
 2. WF Deciders – Control flow of activity tasks.
-
-3. WF Activity workers – Carry out actual task
+3. WF Activity workers – Carry out actual task.
 
 ## SNS – Simple Notification Service
 
