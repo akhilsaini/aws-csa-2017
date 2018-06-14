@@ -1694,15 +1694,19 @@ Exam Tip - De-couple ➔ SQS
   - No EC2 components involved.
   - It can also involve human actors.
   - Workers are programs that interact with Amazon SWF to get tasks, and return the results.
-  - The decider is a program that controls 
+  - The decider is a program that controls the cordination of tasks, i.e. either ordering, concurrency and scheduling according to the application logic.
+
+  The workers and decider can run on cloud infrastructure, such as EC2, or on machines behind firewalls. Amazon SWF brokers the interaction between workders and deciders. It allows the decider to get the consistent views into the progress of tasks and to initiate new tasks in ongoing manner.
+  At the same time, Amazon SWF stores the tasks, assign them to workers when they are ready, and moniters their progress. It ensures that task is assigned only once and never duplicated. Since Amazon SWF maintains the application's state durably, workers and deciders don't have to keep track of the execution state. They can run independently, and scale quickly.
 
 Trick Question – when to use SQS or SWS
 
 |Attribute|SQS|SWS|
 |----|----|----|
-|Retention |14 days|1 year|
+|Workflow Retention |14 days|1 year but measured in second|
 |API|Message Oriented|Task Oriented|
 |Assignment|Might be assigned multiple times|Only once|
+|Duplication|Can be duplicated|Can never be duplicated|
 |State|Write code to implement tracking|Keeps Track of State & Events|
 
 SWS Actors
@@ -1710,6 +1714,13 @@ SWS Actors
 1. WF Starters – e-commerce application.
 2. WF Deciders – Control flow of activity tasks.
 3. WF Activity workers – Carry out actual task.
+
+SWF Domains
+
+Your workflow and activity type and the workflow execution itself are all scoped to a domain. Domains isolate a set of types, execution and task lists from others within the same account.
+You can register a domain by using the AWS Management Console or by using the Register domain action in the Amazon SWF API.
+
+Note : If there is manual intervention then you need to use SWF otherwise in case of just application SQS.
 
 ## SNS – Simple Notification Service
 
