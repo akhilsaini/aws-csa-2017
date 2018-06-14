@@ -1693,6 +1693,8 @@ Exam Tip - De-couple ➔ SQS
   - Amazon uses SWS to process orders on its website.
   - No EC2 components involved.
   - It can also involve human actors.
+  - Workers are programs that interact with Amazon SWF to get tasks, and return the results.
+  - The decider is a program that controls 
 
 Trick Question – when to use SQS or SWS
 
