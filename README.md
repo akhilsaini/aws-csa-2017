@@ -1725,47 +1725,38 @@ Note : If there is manual intervention then you need to use SWF otherwise in cas
 ## SNS – Simple Notification Service
 
   - Makes it easy to setup, operate and send notifications from the cloud.
-
-  - Immediate delivery to subscribers or other applications
-
+  - Immediate delivery to subscribers or other applications.
   - SNS consists of Topics and you can publish messages to topics.
-
   - You can send emails, text and other alerts. Apple Push, Android etc.
-
-  - Publish messages to SQS queues, trigger Lambda functions.  Lambda function can then manipulate information and then send to other SNS Topics
-
+  - Publish messages to SQS queues, trigger Lambda functions.  Lambda function can then manipulate information and then send to other SNS Topics.
   - SNS is Push based messaging.
-
   - You can group multiple recipients using topics. Recipients can subscribe to topics to receive notifications.
-
   - Flexible message delivery over multiple protocols.
-
   - Is used in conjunction with CloudWatch and AutoScaling.
 
 EC2 instances pull SQS messages from a standard SQS queue on a FIFO (First In First out) basis.  – False
 
+### SNS Pricing
+
+- Users pay $0.50 per 1 million Amazon SNS request.
+- $0.06 per 100,000 notification deliveries over http.
+- $0.75 per 100 notification delieveries over sms.
+- $2.00 per 100,000 notification deliveries over email.
+
 ## Elastic Transcoder
 
   - Allows to convert media files from source to different media formats.
-
-  - You pay the minutes you transcode and the resolution
-
+  - You pay the minutes you transcode and the resolution.
   - S3 → Lambda Function → E. Transcoder → S3
 
 ## API Gateway
 
   - Managed web service which enables developers to publish, monitor and secure APIs at any scale.
-
-  - Create an API that acts as front door for applications to access data, business logic or any functionality from your backend services
-
-  - API Caching – Cache your endpoint’s responses. Reduces load on endpoints based on duration of TTLs
-
-  - Low cost & Efficient. Scales
-
+  - Create an API that acts as front door for applications to access data, business logic or any functionality from your backend services.
+  - API Caching – Cache your endpoint’s responses. Reduces load on endpoints based on duration of TTLs.
+  - Low cost & Efficient. Scales.
   - Throttle requests as required to prevent attacks.
-
   - Log requests to CloudWatch.
-
   - For application built on top of multiple domains, you need to enable CORS on API Gateway.
 
 ## Amazon Kinesis
