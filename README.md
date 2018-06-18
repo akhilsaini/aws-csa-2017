@@ -1891,20 +1891,29 @@ HIPAA, CSA, MPAA
 
 ## Architecting for AWS Cloud - Best Practices
 
-  - Business Benefits of Cloud.
+  - Business Benefits of Cloud
     - No upfront investment
     - just in time infrastructure
     - more efficient resource utilization
     - usage based billing
     - reduced time to market,
 
-  - Technical Benefits.
+  - Technical Benefits
+    - Scriptable Infrastructure
+    - Auto Scaling
+    - Proactive Scaling
+    - Efficient Development Lifecycle
+    - Improved Testability
+    - Disaster Recovery and Business Connectivity
+    - Overflow traffic into the cloud.
 
-Scriptable Infrastructure, Auto Scaling, Proactive Scaling, Efficient Development Lifecycle, Improved Testability, Disaster Recovery and Business Connectivity, Overflow traffic into the cloud.
-
-  - Design for failure.
-
-Be pessimistic and design for failure. Assume capacity will be impacted, software will fail, and VMs will crash
+  - Design for failure
+    - Be pessimistic and design for failure.Always design, implement and deploy for automated recovery from failure.
+    - Assume your H/W will fail.
+    - Assume capacity will be impacted. You'll be slammed with more than expected number of requests within a day.
+    - Software will fail.
+    - VMs will crash.
+    - Think about recovery strategies during design time.
 
   - Decouple your components – [Key SQS].
 
