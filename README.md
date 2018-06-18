@@ -1892,8 +1892,11 @@ HIPAA, CSA, MPAA
 ## Architecting for AWS Cloud - Best Practices
 
   - Business Benefits of Cloud.
-
-No upfront investment, just in time infrastructure, more efficient resource utilization, usage based billing, reduced time to market,
+    - No upfront investment
+    - just in time infrastructure
+    - more efficient resource utilization
+    - usage based billing
+    - reduced time to market,
 
   - Technical Benefits.
 
