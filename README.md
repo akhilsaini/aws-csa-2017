@@ -1996,7 +1996,7 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
 
 ### Best Practices
 
-1. Data protection
+1. **Data protection**
 
   - Basic data classification should be in place. Organize data into segments. Who should have access to data? Implement least privilege principle
   - Encrypt everything where possible – both at rest and in transit
@@ -2009,7 +2009,7 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
 
 How are you encrypting data at rest and transit (SSL)? – ELB, EBS, S3, RDS
 
-2. Privilege management
+2. **Privilege management**
 
   - Allow only authorized and authenticated users are able to access resources. This is achieved via
   - ACLs,
@@ -2024,7 +2024,7 @@ How are you limiting automated access to AWS resources? – Application scripts,
 
 How are you managing keys and credentials?
 
-3. Infrastructure protection
+3. **Infrastructure protection**
 
 How do you protect your data center – RFID controls, security,lockable cabinets, CCTV etc?
 
@@ -2036,11 +2036,11 @@ How are you enforcing AWS Service level protections? Different user, groups, str
 
 How are you protecting integrity of operating system? Is anti-virus intalled?
 
-4. Detective controls
+4. **Detective controls**
 
 Detect or identify a security breach
 
-  1. AWS Services which can help
+  1. **AWS Services which can help**
 
   - CloudTrail
   - CloudWatch
@@ -2050,7 +2050,7 @@ Detect or identify a security breach
 
 How are you capturing and analyzing your AWS logs. CloudTrail is a regional service. Which 3rd party tools you are using for this analysis.
 
-  2. Reliability / Fault Tolerance
+  2. **Reliability / Fault Tolerance**
 
   - Ability of system to recover from service or infrastructure outages/disruptions
 
