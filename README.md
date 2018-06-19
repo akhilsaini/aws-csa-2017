@@ -1520,6 +1520,8 @@ With RDS scaling is not so easy, you have to use a bigger instance or add read r
 
 # VPC
 
+###### [Go to Contents Index](#table-of-contents)
+
 Important section for all exams☺. You should be able to build out own VPCs from memory.
 
 Defination : Amazon VPC lets you provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets and configuration of route tables and network gateways.
@@ -1658,6 +1660,8 @@ We can have multiple VPCs, within the same region. We want to isolate one set of
 
 # Application Services
 
+###### [Go to Contents Index](#table-of-contents)
+
 ## SQS – Simple Queue Service
 
   - SQS is a distributed web service that gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
@@ -1786,10 +1790,12 @@ EC2 instances pull SQS messages from a standard SQS queue on a FIFO (First In Fi
       - Run SQL type queries on top of data contained in Streams or Firehose and store the results in S3 / Redshift and Elastic Search cluster.
 
 # The Real World – Creating a Fault Tolerant Word Press Site
-> This section needs additional information
 
+###### [Go to Contents Index](#table-of-contents)
 
 # Preparing for Exam – While Paper Reviews
+
+###### [Go to Contents Index](#table-of-contents)
 
 ## Overview of Amazon Web Services
 
@@ -1945,6 +1951,8 @@ HIPAA, CSA, MPAA
   - Need 2 forms of ID – Photo government ID, secondary ID – Credit/Debit/Bank card.
 
 # Well Architected Framework
+
+###### [Go to Contents Index](#table-of-contents)
 
 Framework developed by various SAs based on their experience with customers
 
