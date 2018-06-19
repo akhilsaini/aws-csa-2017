@@ -1958,11 +1958,8 @@ It is a set of questions to check how well aligned is your architecture to best 
 **4 Pillars of WAF**
 
 1. Security
-
 2. Reliability
-
 3. Performance Efficiency
-
 4. Cost Optimization
 
 Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services these pillars apply to.
@@ -1970,14 +1967,12 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
 **General Design Principles**
 
 1. Stop guessing your capacity needs.
-
 2. Test systems at production scale – Use Cloud Formation and test in other regions
-
 3. Lower risk of architecture change.
-
 4. Automate to make architecture experimentation easier.
-
 5. Allow for evolutionary architectures. (E.g. Physical servers earlier you are stuck with it but now Cloud you can move to newer cloud features as soon as they are available.)
+6. Data-Driven architectures.
+7. Improve through game days.
 
 
 ### Design Principles
