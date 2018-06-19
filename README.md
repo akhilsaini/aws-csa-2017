@@ -1974,26 +1974,20 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
 6. Data-Driven architectures.
 7. Improve through game days.
 
+## Security : WAF First Pillar
 
 ### Design Principles
 
 1. Apply security at all layers.
-
-    1. Not just edge firewalls. Apply it a subnet level , ACLs , which ports used on ELB, instances
-
+    1. Not just edge firewalls. Apply it a subnet level , ACLs , which ports used on ELB, instances.
     2. Run anti-virus on Windows instances
-
-2. Enables traceability
-
-3. Automate responses to security events – E.g. SNS notification for ssh
-
+2. Enables traceability.
+3. Automate responses to security events – E.g. SNS notification for ssh.
 4. Focus on securing your system.
-
-5. Automate security best practices. – Use hardened AMIs
-
+5. Automate security best practices. – Use hardened AMIs. Ref : https://www.cisecurity.org/
 6. AWS Shared Responsibility Model – Customer responsible for data and OS. AWS responsible for security of underlying infrastructure & as a service offerings – RDS etc.
 
-### Security Areas
+### Definition : Security Areas 
 
   1. Data protection
   2. Privilege management
@@ -2009,8 +2003,8 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
   - AWS customers maintain full control of their data
   - AWS makes it easier for you to encrypt your data and manage keys – KMS or by a customer
   - Detailed logging available.
-  - AWS systems are exceptionally resilient.
-  - Versioning can be used as data lifecycle management.
+  - AWS systems are exceptionally resilient.(If you store 10,000 objects in s3, you can on average expect to incur a loss of a single object once every 10,000,000 years.)
+  - Versioning can be used as data lifecycle management process, can protect against accidental overwrites, deletes and similar harm.
   - AWS never initiates movement of data between regions unless a feature is enabled or leverages a services
 
 How are you encrypting data at rest and transit (SSL)? – ELB, EBS, S3, RDS
@@ -2020,9 +2014,9 @@ How are you encrypting data at rest and transit (SSL)? – ELB, EBS, S3, RDS
   - Allow only authorized and authenticated users are able to access resources. This is achieved via
   - ACLs,
   - RBAC – Role based access control
-  - Password Management
+  - Password Management(such as password rotation policy)
 
-How are you protecting access to and use of AWS root account credentials?
+How are you protecting access to and use of AWS root account credentials? Using MFA or not ??
 
 How are you defining roles and responsibilities of system users to control human access to AWS Console and APIs – e.g. Groups for system admins, group for HR and other departments?
 
@@ -2032,30 +2026,26 @@ How are you managing keys and credentials?
 
 3. Infrastructure protection
 
-How do you protect your data center – RFID controls, security, CCTV etc?
+How do you protect your data center – RFID controls, security,lockable cabinets, CCTV etc?
 
-Infrastructure protection essentially exists at VPC level – Physical infra is managed by AWS
+Infrastructure protection essentially exists at VPC level – Physical infra is managed by AWS. How you routing?
 
-How are you enforcing network and host-level boundary protection? E.g. Jump host. Local down which ports can be used.
+How are you enforcing network(SG,NACL,Public/private subnet) and host-level boundary protection? E.g. Jump host. Local down which ports can be used.
 
-How are you enforcing AWS Service level protections? Are you using IAM?
+How are you enforcing AWS Service level protections? Different user, groups, strong password protecteion, Are you using IAM?
 
-How are you protecting integrity of operating system?
+How are you protecting integrity of operating system? Is anti-virus intalled?
 
 4. Detective controls
 
 Detect or identify a security breach
 
-AWS Services which can help
+  1. AWS Services which can help
 
   - CloudTrail
-
   - CloudWatch
-
   - Config
-
   - S3
-
   - Glacier
 
 How are you capturing and analyzing your AWS logs. CloudTrail is a regional service. Which 3rd party tools you are using for this analysis.
@@ -2065,6 +2055,8 @@ How are you capturing and analyzing your AWS logs. CloudTrail is a regional serv
   - Ability of system to recover from service or infrastructure outages/disruptions
 
   - Ability to dynamically scale
+
+## Reliability : WAF Second Pillar
 
 ### Design Principles
 
@@ -2132,6 +2124,8 @@ How are you planning for recovery?
 3. Performance Efficiency
 
 Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
+
+## Performance Efficiency : WAF Third Pillar
 
 ### Design Principles
 
@@ -2227,6 +2221,8 @@ How do you ensure proximity and caching capacity matches demand?
   4. Cost Optimization
 
 Use cost to minimum and use the savings in other parts of business.
+
+## Cost Optimization : WAF Fourth Pillar
 
 ### Design Principles
 
