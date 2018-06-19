@@ -1975,6 +1975,8 @@ Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services 
 7. Improve through game days.
 
 ## Security : WAF First Pillar
+<details>
+<summary>Security : WAF First Pillar</summary>
 
 ### Design Principles
 
@@ -2055,6 +2057,7 @@ How are you capturing and analyzing your AWS logs. CloudTrail is a regional serv
   - Ability of system to recover from service or infrastructure outages/disruptions
 
   - Ability to dynamically scale
+</details>
 
 ## Reliability : WAF Second Pillar
 
