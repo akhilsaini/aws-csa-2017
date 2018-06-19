@@ -1940,14 +1940,11 @@ HIPAA, CSA, MPAA
 
 ## Exam Practicalities
 
-  - 80 minutes in length – 55 questions in exam
-
-  - $150 USD or equivalent currency
-
-  - Conducted at webassessor centers [https://www.webassessor.com](https://www.webassessor.com)
-
+  - 1300 minutes in length – 65 questions in exam.
+  - $150 USD or equivalent currency.
+  - $20 USD for practice exam fee.
+  - Conducted at webassessor centers [https://www.webassessor.com](https://www.webassessor.com).
   - Arrive 15 minutes early.
-
   - Need 2 forms of ID – Photo government ID, secondary ID – Credit/Debit/Bank card.
 
 # Well Architected Framework
