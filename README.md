@@ -1915,19 +1915,15 @@ HIPAA, CSA, MPAA
     - VMs will crash.
     - Think about recovery strategies during design time.
 
-  - Decouple your components – [Key SQS].
+  - Decouple your components – [Key SQS]
+    - Loosely couple your applications such that failure of one doesn’t bring the whole system down.
+    - Loose coupling isolates the various layers and components of your application such that various components interact with each other asynchronously.
+    - E.g. have SQS sitting between web server and application server and DB server.
 
-Loosely couple your applications such that failure of one doesn’t bring the whole system down.  Loose coupling isolates the various layers and components of your application such that various components interact with each other asynchronously.
-
-E.g. have SQS sitting between web server and application server and DB server.
-
-  - Implement Elasticity
-
-Proactive Cycling Scaling – e.g. Month end load for payroll processing
-
-Proactive Event Scaling – New product launches, Black Friday, marketing campaigns
-
-Auto Scaling on Demand – use monitoring service to send triggers, to scale environment up or down, based on certain metrics.
+  - Implement Elasticity : 3 ways
+    - Proactive Cycling Scaling – e.g. Month end load for payroll processing
+    - Proactive Event Scaling – New product launches, Black Friday, marketing campaigns, christmas
+    - Auto Scaling on Demand – use monitoring service to send triggers, to scale environment up or down, based on certain metrics.
 
   - Secure Your applications
 
