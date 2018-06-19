@@ -1926,12 +1926,11 @@ HIPAA, CSA, MPAA
     - Auto Scaling on Demand – use monitoring service to send triggers, to scale environment up or down, based on certain metrics.
 
   - Secure Your applications
+    - Web Tier – port 80/443 open to world.
+    - App Tier – only SSH port 22 for developers from your company IP range.
+    - DB – no access apart from App Tier
 
-Web Tier – port 80/443 open to world.
-
-App Tier – only SSH port 22 for developers from your company IP range
-
-DB – no access apart from App Tier
+![Secure Your Application](secure-your-application.png)
 
 ## Exam Practicalities
 
