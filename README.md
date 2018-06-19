@@ -2060,6 +2060,8 @@ How are you capturing and analyzing your AWS logs. CloudTrail is a regional serv
 </details>
 
 ## Reliability : WAF Second Pillar
+<details>
+<summary>Reliability : WAF Second Pillar</summary>
 
 ### Design Principles
 
@@ -2127,8 +2129,11 @@ How are you planning for recovery?
 3. Performance Efficiency
 
 Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
+</details>
 
 ## Performance Efficiency : WAF Third Pillar
+<details>
+<summary>Performance Efficiency : WAF Third Pillar</summary>
 
 ### Design Principles
 
@@ -2224,8 +2229,12 @@ How do you ensure proximity and caching capacity matches demand?
   4. Cost Optimization
 
 Use cost to minimum and use the savings in other parts of business.
+</details>
 
 ## Cost Optimization : WAF Fourth Pillar
+
+<details>
+<summary>Cost Optimization : WAF Fourth Pillar</summary>
 
 ### Design Principles
 
@@ -2290,6 +2299,8 @@ Subscribe to AWS Blog
 Use AWS Trusted Advisor
 
 How do you manage and/or consider adoption of new services
+
+</details>
 
 ### Key AWS Services
 
