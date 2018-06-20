@@ -2063,53 +2063,48 @@ How are you capturing and analyzing your AWS logs. CloudTrail is a regional serv
 <details>
 <summary>Reliability : WAF Second Pillar</summary>
 
+The reliability pillar covers the ability of system to recover from service/infrastructure outage/disruptions as well as the ability to dynamically acquire computing resources to meet demand(e.g. auto-scaling).
+
 ### Design Principles
 
-  - Test recovery procedures. E.g. Netflix simian army
-
-  - Automatically recover from failure – anticipate and recover from failure
-
-  - Scale horizontally to increase system availability
-
+  - Test recovery procedures. E.g. Netflix simian army. How exactly the system copes with the failure and recovers.
+  - Automatically recover from failure – anticipate and recover from failure.
+  - Scale horizontally to increase system availability.
   - Stop guessing capacity – don’t under provision or over provision
 
 ### Areas of Reliability
 
-  - Foundations
-
-  - Change Management
-
-  - Failure Management
+  - Foundations.
+  - Change Management.
+  - Failure Management.
 
 ### Best Practices
 
-  - Foundations
+#### Foundations
 
 E.g. side of communication link between HQ and Data Center
 
 AWS handles networking and compute resources. However, there are service limits to stop customers from overprovisioning. You can request increase
 
-How are you managing AWS Service Limits?
+How are you managing AWS Service Limits? Is there some in-charge for that?? who can raise the tickets and take care this?
 
 How are you planning your network topology on AWS?
 
 Do you have an escalation path to deal with technical issues?
 
-  - Change Management
+#### Change Management
 
-Aware of how software changes affect environments.
-
-With AWS use CloudWatch to monitor your environment. Traditional IT Change control is not required in cloud.
+Aware of how software changes affect environments. Monitoring allows you to detect any changes to your environment and react. In traditional systems, change control is done manually and are carefully co-ordinated with auditing. With AWS use CloudWatch to monitor your environment and services such as auto-scaling to automate change in response to changes on your prod env. Traditional IT Change control is not required in cloud.
 
 How system adapts to change in demand?
 
 How you monitor AWS resources?
 
-How you execute change management.
+How you execute change management? 
 
-  - Failure Management
+#### Failure Management
 
-Architect systems assuming failure will occur.
+Architect systems assuming failure will occur. You should become aware of these failures, how they occurred, how to respond to them and then plan on how to prevent these from happening again.
 
 How are you backup up data?
 
@@ -2119,21 +2114,18 @@ How are you planning for recovery?
 
 ### Key AWS Resources
 
-  - Foundations – IAM, VPC
-
-  - Change Management - CloudTrail
-
-  - Failure Management - CloudFormation
+  - Foundations – IAM, VPC.
+  - Change Management - CloudTrail.
+  - Failure Management - CloudFormation (But can be used RDS or Multi-AZs Ryan disagrees from AWS).
 
 
-3. Performance Efficiency
-
-Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
 </details>
 
 ## Performance Efficiency : WAF Third Pillar
 <details>
 <summary>Performance Efficiency : WAF Third Pillar</summary>
+
+Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
 
 ### Design Principles
 
