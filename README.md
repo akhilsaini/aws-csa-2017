@@ -1955,7 +1955,7 @@ Framework developed by various SAs based on their experience with customers
 
 It is a set of questions to check how well aligned is your architecture to best practices
 
-**4 Pillars of WAF**
+**4 Pillars of WAF** (SRPC)
 
 1. Security
 2. Reliability
@@ -2063,6 +2063,7 @@ How are you capturing and analyzing your AWS logs. CloudTrail is a regional serv
 <details>
 <summary>Reliability : WAF Second Pillar</summary>
 
+
 The reliability pillar covers the ability of system to recover from service/infrastructure outage/disruptions as well as the ability to dynamically acquire computing resources to meet demand(e.g. auto-scaling).
 
 ### Design Principles
@@ -2125,29 +2126,25 @@ How are you planning for recovery?
 <details>
 <summary>Performance Efficiency : WAF Third Pillar</summary>
 
+
 Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
 
 ### Design Principles
 
   - Democratize advanced technologies. Team can consume advanced technologies as services instead of building expertise. E.g. DynamoDB, Machine Learning. Etc.
-
   - Go global in minutes.
-
   - Use server-less architecture
 
 ### Areas of Performance Efficiency
 
-  - Compute
-
-  - Storage
-
-  - Database
-
-  - Space-time trade off
+  - Compute.
+  - Storage.
+  - Database.
+  - Space-time trade off.
 
 ### Best Practices
 
-  - Compute – choose the right kind of server – CPU intensive or Memory intensive.
+#### Compute – choose the right kind of server – CPU intensive or Memory intensive.
 
 How do you select appropriate instance type?
 
@@ -2157,7 +2154,7 @@ How do you monitor instances?
 
 How to ensure quantity of instances matches demands?
 
-  - Storage
+#### Storage
 
 Which storage solution to use depends on number of factors?
 
@@ -2181,7 +2178,7 @@ How do you ensure that you have the most appropriate storage solutions with new 
 
 How do you monitor your storage solution to ensure performance?
 
-  - Database
+#### Database
 
 Do you need consistency, HA, DR needs, No-SQL
 
@@ -2193,15 +2190,11 @@ How do you monitor your database solution to ensure performance?
 
 How do you ensure capacity matches demand?
 
-  - Space-time trade off
-
-  - Use RDS to add read replicas
-
-  - Use Direct Connect to provide predictable latency
-
-  - Use global infrastructure to have multiple copies of your environment, closest to your users
-
-  - Use caching services like ElasticCache or CloudFront
+  - Space-time trade off.
+  - Use RDS to add read replicas.
+  - Use Direct Connect to provide predictable latency.
+  - Use global infrastructure to have multiple copies of your environment, closest to your users.
+  - Use caching services like ElasticCache or CloudFront.
 
 How do you selected appropriate proximity and caching solution for system?
 
@@ -2218,15 +2211,15 @@ How do you ensure proximity and caching capacity matches demand?
   - Database – RDS, DynamoDB , Redshift
   - Space-time trade off – CloudFront, ElastiCache, Direct Connect, RDS Read Replicas, etc. – anything that will lower latency or time to access service.
 
-  4. Cost Optimization
-
-Use cost to minimum and use the savings in other parts of business.
 </details>
 
 ## Cost Optimization : WAF Fourth Pillar
 
 <details>
 <summary>Cost Optimization : WAF Fourth Pillar</summary>
+
+
+Use cost to minimum and use the savings in other parts of business.
 
 ### Design Principles
 
