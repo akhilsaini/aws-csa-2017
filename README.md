@@ -1955,12 +1955,13 @@ Framework developed by various SAs based on their experience with customers
 
 It is a set of questions to check how well aligned is your architecture to best practices
 
-**4 Pillars of WAF** (SRPC)
+**5 Pillars of WAF** (SRPCO)
 
 1. Security
 2. Reliability
 3. Performance Efficiency
 4. Cost Optimization
+5. Operational Excellence
 
 Each Pillar has Design Principles, Definition, Best Practices, Key AWS Services these pillars apply to.
 
