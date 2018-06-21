@@ -2127,13 +2127,15 @@ How are you planning for recovery?
 <summary>Performance Efficiency : WAF Third Pillar</summary>
 
 
-Focuses on how to use computing requirements efficiently to meet business needs. How to manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services
+Focuses on how to use computing requirements efficiently to meet business needs. How to maintain/manage efficiency as demand changes and technology evolves. Constantly question current architecture vis-a-vi current available services.
+
+Am I using the best services available??
 
 ### Design Principles
 
-  - Democratize advanced technologies. Team can consume advanced technologies as services instead of building expertise. E.g. DynamoDB, Machine Learning. Etc.
-  - Go global in minutes.
-  - Use server-less architecture
+  - Democratize advanced technologies. Team can consume advanced technologies as services instead of building expertise. E.g. DynamoDB, Machine Learning, Elastic Transcoder Etc.
+  - Go global in minutes. e.g. Cloudformation Template usage.
+  - Use server-less architecture.
 
 ### Areas of Performance Efficiency
 
@@ -2178,6 +2180,8 @@ How do you ensure that you have the most appropriate storage solutions with new 
 
 How do you monitor your storage solution to ensure performance?
 
+How do you ensure that the capacity and throughput of your storage solutions matches demand?
+
 #### Database
 
 Do you need consistency, HA, DR needs, No-SQL
@@ -2190,11 +2194,15 @@ How do you monitor your database solution to ensure performance?
 
 How do you ensure capacity matches demand?
 
-  - Space-time trade off.
-  - Use RDS to add read replicas.
-  - Use Direct Connect to provide predictable latency.
-  - Use global infrastructure to have multiple copies of your environment, closest to your users.
-  - Use caching services like ElasticCache or CloudFront.
+#### Space-time trade off.
+
+Use RDS to add read replicas, reducing the load on your database and creating multiple copies of the database. This helps to lower the latency.
+
+Use Direct Connect to provide predictable latency b/w HQ and AWS.
+
+Use global infrastructure to have multiple copies of your environment, in regions that closest to your users.
+
+Use caching services like ElasticCache or CloudFront.
 
 How do you selected appropriate proximity and caching solution for system?
 
