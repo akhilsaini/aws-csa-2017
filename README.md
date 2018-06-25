@@ -224,7 +224,7 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 
 ## Amazon History
 
-  - 2003 - Chris Pinkman and Benjamin Black presented a paper on what Amazon's internal infrastructure      should look like and suggested sellingit as a service
+  - 2003 - Chris Pinkman and Benjamin Black presented a paper on what Amazon's internal infrastructure      should look like and suggested selling it as a service
   - 2004 - SQS the first AWS service launched
   - 2006 - Official AWS Launch
   - 2007 - 180K devs on platform
@@ -242,8 +242,13 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
   - Edge Locations are CDN End Points for CloudFront. Many more edge locations exist than regions.
   - 18 Geographical regions and 54 availability zones.
   - 1 Local region.
+  - In India AWS account Asia Pacific(Osaka-local) and China(Beijing (2),Ningxia (3)) Regions are not available.
   - Anounced plan for 4 Geographical regions and 12 availability zones.
   - An AWS local region is a single datacenter designed to complement an existing AWS region.
+  - Provides High Availability,fault tolerance and low latency Through Multiple Availability Zones.
+    - Availability Zones are connected to each other with fast, private fiber-optic networking, enabling you to easily architect applications that automatically fail-over between Availability Zones without interruption.
+  - Improving Continuity With Replication Between Regions
+    - 
 
 ## Tags
 
@@ -776,13 +781,22 @@ The farther you are from S3 bucket region the higher is the improvement you can 
 |6|I2|High speed storage (IOPS)|NoSQL DBs, DWH||
 |7|F1|Field Programmable Gate Array|Hardware acceleration of Code||
 |8|T2|Lowest Cost, General Purpose|Web Servers/ Small DBs| General Purpose|
-|9|P2|Graphics / General Purpose GPU[Parallel Processing]|Machine Learning / Bit Coin Mining.| |
+|9|P2|Graphics / General Purpose GPU[Parallel Processing]|Machine Learning / Bit Coin Mining.| GPU Compute |
 |10|X1|Memory Optimized|SAP HANA / Apache Spark| - |
 
 
 Acronym – **DR MC GIFT PX**
 
-D – Density , R – RAM , M – Main Choice ( default) – Apps, C – Compute,  G – Graphics, I  - IOPS , F – FPGA , T – cheap T2, P – Graphics – Pics – Parallel Processing , X – Extreme Memory
+- D – Density , 
+- R – RAM , 
+- M – Main Choice ( default) – Apps, 
+- C – Compute,  
+- G – Graphics, 
+- I  - IOPS , 
+- F – FPGA , 
+- T – cheap T2, 
+- P – Graphics – Pics – Parallel Processing , 
+- X – Extreme Memory
 
 Use M3 for general purpose instances – balanced compute, memory and network resources
 
@@ -790,6 +804,12 @@ Use M3 for general purpose instances – balanced compute, memory and network re
 - [Exam Tip ] Read FAQ.
 
 EC2 Key Pairs are region specific
+
+C5.xlarge
+
+C : Instance Family
+5 : Instance Generation
+xlarge : Instance Size
 
 ## EBS
 
