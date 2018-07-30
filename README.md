@@ -248,7 +248,6 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
   - Provides High Availability,fault tolerance and low latency Through Multiple Availability Zones.
     - Availability Zones are connected to each other with fast, private fiber-optic networking, enabling you to easily architect applications that automatically fail-over between Availability Zones without interruption.
   - Improving Continuity With Replication Between Regions
-    - 
 
 ## Tags
 
