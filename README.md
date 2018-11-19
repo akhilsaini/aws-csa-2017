@@ -237,8 +237,8 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 ## Global Infrastructure
 
   - A Region is geographical area consisting of 2 or more availability zones.
-  - Availability zone is logical data center.
-  - A AZ can be different for different accounts while having the same name. i.e. us-east-1a can be physically different for different accounts. Randomization of AZs per account basis due to very likely picking up the first option in dropdown.
+  - Availability zone is physical data center.
+  - An AZ can be different for different accounts while having the same name. i.e. us-east-1a can be physically different for different accounts. Randomization of AZs per account basis due to very likely picking up the first option in dropdown.
   - Edge Locations are CDN End Points for CloudFront. Many more edge locations exist than regions.
   - 18 Geographical regions and 54 availability zones.
   - 1 Local region.
@@ -505,7 +505,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### S3 Data Consistency Model
 
   - Read after write consistency for PUTS of new Objects
-  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propogate). Though the retrieval is atomic i.e. no corrupted data, either the old one or the new one.
+  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propagate). Though the retrieval is atomic i.e. no corrupted data, either the old one or the new one.
 
 ### S3 is a simple key value store
 
