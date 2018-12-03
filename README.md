@@ -238,7 +238,7 @@ The exam is approximately 65 questions in 130 minutes. Pass marks not advertised
 
   - A Region is geographical area consisting of 2 or more availability zones.
   - Availability zone is physical data center.
-  - An AZ can be different for different accounts while having the same name. i.e. us-east-1a can be physically different for different accounts. Randomization of AZs per account basis due to very likely picking up the first option in dropdown.
+  - An AZ can be different for different accounts while having the same name. i.e. us-east-1a can be physically different for different accounts. Randomization of AZs *per account basis* due to very likely picking up the first option in dropdown.
   - Edge Locations are CDN End Points for CloudFront. Many more edge locations exist than regions.
   - 18 Geographical regions and 54 availability zones.
   - 1 Local region.
@@ -465,16 +465,19 @@ IAM consists of the following
   - *Power User Access allows Access to all AWS services except the management of groups and users within   IAM.
 
   - Group ARN ->  arn:aws:iam::47629277****:group/Administrators
-  - Pattern ->    arn:aws:[service-name]:[12-digit-num]:group/[group-name]
+  - Pattern ->    arn:aws:[service-name]::[12-digit-num]:group/[group-name]
 
-  - Users ARN ->  arn:aws:iam::476292779418:user/Administrator
+  - Users ARN ->  arn:aws:iam::47629277****:user/Administrator
   - Pattern ->    arn:aws:[service-name]::[12-digit-num]:user/[user-name]
 
-  - Role ARN ->   arn:aws:iam::476292779418:role/service-role/aws-lambda-role
+  - Role ARN ->   arn:aws:iam::47629277****:role/service-role/aws-lambda-role
   - Pattern ->    arn:aws:[service-name]::[12-digit-num]:role/service-role/[role-name]
 
   - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
   - Pattern ->    arn:aws:[service-name]::aws:policy/[policy-name]
+
+  - Policy ARN -> arn:aws:iam::47629277****:aws:policy/AdministratorAccess
+  - Pattern ->    arn:aws:[service-name]::[12-digit-num]:policy/[policy-name]
 
 Manage AWS resources via
 
