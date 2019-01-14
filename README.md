@@ -473,10 +473,10 @@ IAM consists of the following
   - Role ARN ->   arn:aws:iam::47629277****:role/service-role/aws-lambda-role
   - Pattern ->    arn:aws:[service-name]::[12-digit-num]:role/service-role/[role-name]
 
-  - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess
+  - Policy ARN -> arn:aws:iam::aws:policy/AdministratorAccess (AWS defined Policies.)
   - Pattern ->    arn:aws:[service-name]::aws:policy/[policy-name]
 
-  - Policy ARN -> arn:aws:iam::47629277****:aws:policy/AdministratorAccess
+  - Policy ARN -> arn:aws:iam::47629277****:aws:policy/AdministratorAccess (User defined Policies.)
   - Pattern ->    arn:aws:[service-name]::[12-digit-num]:policy/[policy-name]
 
 Manage AWS resources via
