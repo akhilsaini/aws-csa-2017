@@ -500,6 +500,8 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
   - S3 is universal namespace, that is, names must be unique globally.
   - *S3 Bucket URL :-> https://s3.amazonaws.com/mylifecyclebucketak
   - *Pattern :-> https://s3.amazonaws.com/[bucketname]
+  - *S3 Bucket URL :-> https://s3-eu-west-1.amazonaws.com/mylifecyclebucketak
+  - *Pattern :-> https://s3-[region-name].amazonaws.com/[bucketname]
   - S3 File URL :-> https://s3.amazonaws.com/acloudguruwebsiteakhilesh/image1.PNG
   - Pattern :-> https://s3.amazonaws.com/[bucketname]/filename/[filename]
   - On successful completion of upload you'll get 200 status code.
@@ -508,7 +510,7 @@ Using Access Key ID and Secret Access Key – can be used only via accessing pro
 ### S3 Data Consistency Model
 
   - Read after write consistency for PUTS of new Objects
-  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propagate). Though the retrieval is atomic i.e. no corrupted data, either the old one or the new one.
+  - Eventual consistency for overwrite PUTS and DELETES (can take some time to propagate). Though the retrieval is atomic i.e. no corrupted data, either the old one or the new one. It takes time at it'll put your data to multiple AZs for high scalability.
 
 ### S3 is a simple key value store
 
