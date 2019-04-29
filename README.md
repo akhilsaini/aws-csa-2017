@@ -5,8 +5,8 @@
 
 #### This guide is updated for 2019 and onwards
 
-[section 3 - IAM & S3](section3-IAM-S3)
-[section 3 - IAM & S3 FAQs](https://aws.amazon.com/s3/faqs/#)
+* [section 3 - IAM & S3](section3-IAM-S3)
+* [section 3 - IAM & S3 FAQs](https://aws.amazon.com/s3/faqs/#)
 
 
 
