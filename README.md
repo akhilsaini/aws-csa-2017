@@ -9,7 +9,7 @@
 * [section 3 - IAM FAQs](https://aws.amazon.com/iam/faqs/?nc=sn&loc=5)
 * [section 3 - S3 FAQs](https://aws.amazon.com/s3/faqs/#)
 * [section 4 - EC2](section4-EC2)
-* [section5-Databases-on-AWS](section5-Databases on AWS)
+* [section 5 - Databases-on-AWS](section5-Databases-on-AWS)
 
 * [AWS FAQs](https://aws.amazon.com/faqs/?nc1=f_dr)
 
