@@ -12,8 +12,7 @@
 * [section 5 - Databases-on-AWS](section5-Databases-on-AWS)
 
 * [AWS FAQs](https://aws.amazon.com/faqs/?nc1=f_dr)
-
-
+* [AWS Blog](https://aws.amazon.com/blogs)
 
 
 
