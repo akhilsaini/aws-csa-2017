@@ -74,8 +74,6 @@
 ![Screenshot_72.png](Screenshot_72.png)
 ![Screenshot_73.png](Screenshot_73.png)
 ![Screenshot_74.png](Screenshot_74.png)
-![Screenshot_75.png](Screenshot_75.png)
-![Screenshot_76.png](Screenshot_76.png)
 
 
 ### Notes
