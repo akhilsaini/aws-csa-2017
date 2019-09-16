@@ -1,5 +1,8 @@
 ## section 3 - IAM & S3
 
+* [section 3 - IAM FAQs](https://aws.amazon.com/iam/faqs/?nc=sn&loc=5)
+* [section 3 - S3 FAQs](https://aws.amazon.com/s3/faqs/#)
+
 ![Screenshot_1.png](Screenshot_1.png)
 ![Screenshot_2.png](Screenshot_2.png)
 ![Screenshot_3.png](Screenshot_3.png)
