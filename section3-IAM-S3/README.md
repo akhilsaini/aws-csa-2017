@@ -3,6 +3,18 @@
 * [section 3 - IAM FAQs](https://aws.amazon.com/iam/faqs/?nc=sn&loc=5)
 * [section 3 - S3 FAQs](https://aws.amazon.com/s3/faqs/#)
 
+#### FAQs
+
+
+Q: Can IAM users have individual EC2 SSH keys?
+Not in the initial release. IAM does not affect EC2 SSH keys or Windows RDP certificates. This means that although each user has separate credentials for accessing web service APIs, they must share SSH keys that are common across the AWS account under which users have been defined.
+
+Q: Can I set usage quotas on IAM users?
+No. All limits are on the AWS account as a whole. For example, if your AWS account has a limit of 20 Amazon EC2 instances, IAM users with EC2 permissions can start instances up to the limit. You cannot limit what an individual user can do.
+
+Q: What is an IAM role?
+An IAM role is an IAM entity that defines a set of permissions for making AWS service requests. IAM roles are not associated with a specific user or group. Instead, trusted entities assume roles, such as IAM users, applications, or AWS services such as EC2.
+
 ![Screenshot_1.png](Screenshot_1.png)
 ![Screenshot_2.png](Screenshot_2.png)
 ![Screenshot_3.png](Screenshot_3.png)
